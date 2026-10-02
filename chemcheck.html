@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+<title>ChemCheck | Chemistry Calculator</title>
+ 
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ 
+body {
+    background: #f4effa;
+    color: #28212f;
+    line-height: 1.5;
+}
+ 
+/* =========================
+   HEADER
+========================= */
+ 
+header {
+    background: #35204d;
+    border-bottom: 1px solid #4d3265;
+    padding: 17px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(48, 27, 67, 0.15);
+}
+ 
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: #d8bdf0;
+}
+ 
+.logo span {
+    color: #ffffff;
+}
+ 
+nav {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+ 
+nav button {
+    background: transparent;
+    color: #ddd0e7;
+    border: none;
+    padding: 8px 11px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 13px;
+}
+ 
+nav button:hover,
+nav button.active {
+    background: #68468a;
+    color: #ffffff;
+}
+ 
+/* =========================
+   HERO
+========================= */
+ 
+.hero {
+    padding: 65px 7% 55px;
+    max-width: 1100px;
+    margin: auto;
+}
+ 
+.hero small {
+    color: #70469a;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+ 
+.hero h1 {
+    font-size: clamp(35px, 6vw, 58px);
+    margin: 10px 0;
+    color: #35204d;
+}
+ 
+.hero h1 span {
+    color: #7951a0;
+}
+ 
+.hero p {
+    max-width: 700px;
+    color: #62596b;
+    font-size: 16px;
+}
+ 
+.math-note {
+    margin-top: 25px;
+    display: inline-block;
+    padding: 13px 17px;
+    background: #e9ddf3;
+    border-left: 3px solid #8055a6;
+    color: #4c3b59;
+    font-size: 14px;
+    border-radius: 4px;
+}
+ 
+/* =========================
+   MAIN
+========================= */
+ 
+main {
+    width: 86%;
+    max-width: 1200px;
+    margin: auto;
+}
+ 
+.section {
+    display: none;
+    padding: 45px 0 70px;
+}
+ 
+.section.active {
+    display: block;
+}
+ 
+.section-title {
+    margin-bottom: 25px;
+}
+ 
+.section-title h2 {
+    color: #39244e;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+ 
+.section-title p {
+    color: #756a7e;
+}
+ 
+/* =========================
+   CARDS
+========================= */
+ 
+.card {
+    background: #ffffff;
+    border: 1px solid #ded1e8;
+    border-radius: 9px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(67, 43, 84, 0.06);
+}
+ 
+.card h3 {
+    color: #69438b;
+    margin-bottom: 8px;
+}
+ 
+.card-description {
+    color: #756d7c;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+ 
+/* =========================
+   FORMS
+========================= */
+ 
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 15px;
+}
+ 
+label {
+    display: block;
+    color: #51465a;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+ 
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cdbddd;
+    background: #faf8fc;
+    color: #332b39;
+    border-radius: 5px;
+    outline: none;
+}
+ 
+input:focus,
+select:focus {
+    border-color: #8153a7;
+    box-shadow: 0 0 0 2px #eadff2;
+}
+ 
+.btn {
+    margin-top: 18px;
+    background: #704895;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+ 
+.btn:hover {
+    background: #5e397e;
+}
+ 
+.btn.secondary {
+    background: #e9dff1;
+    color: #563772;
+    border: 1px solid #d2c1df;
+    margin-left: 7px;
+}
+ 
+.btn.secondary:hover {
+    background: #dccce8;
+}
+ 
+/* =========================
+   RESULT
+========================= */
+ 
+.result {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: #f6f0fa;
+    border: 1px solid #d9c8e4;
+    border-radius: 7px;
+}
+ 
+.result.show {
+    display: block;
+}
+ 
+.result h3 {
+    color: #69438b;
+    margin-bottom: 12px;
+}
+ 
+.result-value {
+    font-size: 25px;
+    font-weight: bold;
+    color: #382449;
+    margin: 8px 0;
+}
+ 
+.formula {
+    background: #eee4f5;
+    border: 1px solid #d8c6e4;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 12px;
+    color: #503c5e;
+    font-family: "Courier New", monospace;
+    overflow-x: auto;
+}
+ 
+.error {
+    color: #a24f5b;
+}
+ 
+/* =========================
+   PERIODIC TABLE
+========================= */
+ 
+.table-wrapper {
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+ 
+.periodic-table {
+    min-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 4px;
+}
+ 
+.element {
+    min-height: 65px;
+    border: 1px solid #cdbbdd;
+    background: #f5eef9;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.15s;
+}
+ 
+.element:hover {
+    border-color: #7950a0;
+    background: #e9dcf1;
+    transform: translateY(-2px);
+}
+ 
+.element .number {
+    font-size: 9px;
+    color: #76687e;
+}
+ 
+.element .symbol {
+    text-align: center;
+    font-size: 19px;
+    font-weight: bold;
+    color: #68418b;
+}
+ 
+.element .name {
+    text-align: center;
+    font-size: 8px;
+    color: #766b7d;
+    white-space: nowrap;
+    overflow: hidden;
+}
+ 
+.empty {
+    min-height: 65px;
+}
+ 
+.element-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+ 
+.info-box {
+    background: #f5eff9;
+    padding: 15px;
+    border: 1px solid #ded0e7;
+    border-radius: 5px;
+}
+ 
+.info-box small {
+    color: #776b80;
+    display: block;
+    margin-bottom: 3px;
+}
+ 
+.info-box strong {
+    font-size: 19px;
+    color: #473250;
+}
+ 
+/* =========================
+   CHEMISTRY VISUAL
+========================= */
+ 
+.chem-equation {
+    text-align: center;
+    font-size: 20px;
+    color: #68438a;
+    padding: 15px;
+    background: #eee3f5;
+    border-radius: 5px;
+    margin-top: 15px;
+    border: 1px solid #dcc9e7;
+}
+ 
+/* =========================
+   FOOTER
+========================= */
+ 
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #d9cce0;
+    color: #756a7d;
+    font-size: 13px;
+    background: #eee7f3;
+}
+ 
+@media (max-width: 700px) {
+ 
+    header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+ 
+    nav {
+        width: 100%;
+        overflow-x: auto;
+    }
+ 
+    .hero {
+        padding-top: 40px;
+    }
+ 
+    main {
+        width: 90%;
+    }
+ 
+    .card {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+ 
+<body>
+ 
+<header>
+ 
+    <div class="logo">
+        Chem<span>Check</span>
+    </div>
+ 
+    <nav>
+ 
+        <button class="nav-btn active"
+                onclick="showSection('home', this)">
+            Home
+        </button>
+ 
+        <button class="nav-btn"
+                onclick="showSection('periodic', this)">
+            Periodic Table
+        </button>
+ 
+        <button class="nav-btn"
+                onclick="showSection('atomic', this)">
+            Atomic Calculator
+        </button>
+ 
+        <button class="nav-btn"
+                onclick="showSection('electro', this)">
+            Electronegativity
+        </button>
+ 
+       
+ 
+    </nav>
+ 
+</header>
+ 
+ 
+<!-- =========================
+     HOME
+========================= -->
+ 
+<section id="home" class="section active">
+ 
+    <div class="hero">
+ 
+        <small>MATHEMATICS × CHEMISTRY</small>
+ 
+        <h1>
+            Chemistry made<br>
+            <span>calculable.</span>
+        </h1>
+ 
+        <p>
+            ChemCheck is a simple educational tool that demonstrates
+            how mathematical operations can be used to understand atoms,
+            ions, electronegativity, and chemical bonding.
+        </p>
+ 
+        <div class="math-note">
+            Addition • Subtraction • Differences • Numerical comparison
+        </div>
+ 
+    </div>
+ 
+    <main>
+ 
+        <div class="card">
+ 
+            <h3>What can you calculate?</h3>
+ 
+            <p class="card-description">
+                Select a tool above to explore the mathematical relationships
+                used in basic chemistry.
+            </p>
+ 
+            <div class="form-grid">
+ 
+                <div class="info-box">
+                    <small>Atomic structure</small>
+                    <strong>p + n = mass number</strong>
+                </div>
+ 
+                <div class="info-box">
+                    <small>Net charge</small>
+                    <strong>p − e = charge</strong>
+                </div>
+ 
+                <div class="info-box">
+                    <small>Electronegativity</small>
+                    <strong>|EN₁ − EN₂|</strong>
+                </div>
+ 
+                <div class="info-box">
+                    <small>Bond classification</small>
+                    <strong>Compare ΔEN</strong>
+                </div>
+ 
+            </div>
+ 
+        </div>
+ 
+    </main>
+ 
+</section>
+ 
+ 
+<!-- =========================
+     PERIODIC TABLE
+========================= -->
+ 
+<section id="periodic" class="section">
+ 
+    <main>
+ 
+        <div class="section-title">
+ 
+            <h2>Periodic Table</h2>
+ 
+            <p>
+                Select an element to view its basic atomic information.
+            </p>
+ 
+        </div>
+ 
+        <div class="card">
+ 
+            <div class="table-wrapper">
+ 
+                <div id="periodicTable"
+                     class="periodic-table">
+                </div>
+ 
+            </div>
+ 
+            <div id="elementInfo"
+                 class="result">
+ 
+                <h3 id="selectedElement">
+                    Select an element
+                </h3>
+ 
+                <div class="element-info">
+ 
+                    <div class="info-box">
+ 
+                        <small>Atomic number</small>
+ 
+                        <strong id="atomicNumber">
+                            —
+                        </strong>
+ 
+                    </div>
+ 
+                    <div class="info-box">
+ 
+                        <small>Atomic mass</small>
+ 
+                        <strong id="atomicMass">
+                            —
+                        </strong>
+ 
+                    </div>
+ 
+                    <div class="info-box">
+ 
+                        <small>Common charge</small>
+ 
+                        <strong id="commonCharge">
+                            —
+                        </strong>
+ 
+                    </div>
+ 
+                    <div class="info-box">
+ 
+                        <small>Electronegativity</small>
+ 
+                        <strong id="elementEN">
+                            —
+                        </strong>
+ 
+                    </div>
+ 
+                </div>
+ 
+                <p class="card-description"
+                   style="margin-top:15px;">
+ 
+                    Atomic mass represents the weighted average
+                    of naturally occurring isotopes. Mass number
+                    is calculated separately using protons + neutrons.
+ 
+                </p>
+ 
+            </div>
+ 
+        </div>
+ 
+    </main>
+ 
+</section>
+ 
+ 
+<!-- =========================
+     ATOMIC CALCULATOR
+========================= -->
+ 
+<section id="atomic" class="section">
+ 
+    <main>
+ 
+        <div class="section-title">
+ 
+            <h2>Atomic Calculator</h2>
+ 
+            <p>
+                Calculate protons, neutrons, electrons,
+                mass number, and net charge.
+            </p>
+ 
+        </div>
+ 
+        <div class="card">
+ 
+            <h3>Enter atomic information</h3>
+ 
+            <p class="card-description">
+ 
+                Enter the values you know. Leave one particle field
+                blank to calculate it when possible.
+ 
+            </p>
+ 
+            <div class="form-grid">
+ 
+                <div>
+ 
+                    <label>Protons</label>
+ 
+                    <input id="protons"
+                           type="number"
+                           min="0"
+                           placeholder="e.g. 11">
+ 
+                </div>
+ 
+                <div>
+ 
+                    <label>Neutrons</label>
+ 
+                    <input id="neutrons"
+                           type="number"
+                           min="0"
+                           placeholder="e.g. 12">
+ 
+                </div>
+ 
+                <div>
+ 
+                    <label>Electrons</label>
+ 
+                    <input id="electrons"
+                           type="number"
+                           min="0"
+                           placeholder="e.g. 10">
+ 
+                </div>
+ 
+            </div>
+ 
+            <button class="btn"
+                    onclick="calculateAtom()">
+ 
+                Calculate
+ 
+            </button>
+ 
+            <button class="btn secondary"
+                    onclick="clearAtomic()">
+ 
+                Clear
+ 
+            </button>
+ 
+            <div id="atomicResult"
+                 class="result">
+            </div>
+ 
+        </div>
+ 
+    </main>
+ 
+</section>
+ 
+ 
+<!-- =========================
+     ELECTRONEGATIVITY
+========================= -->
+ 
+<section id="electro" class="section">
+ 
+    <main>
+ 
+        <div class="section-title">
+ 
+            <h2>Electronegativity Calculator</h2>
+ 
+            <p>
+                Calculate the difference between two
+                electronegativity values.
+            </p>
+ 
+        </div>
+ 
+        <div class="card">
+ 
+            <h3>ΔEN Calculator</h3>
+ 
+            <p class="card-description">
+ 
+                The electronegativity difference is found by
+                subtracting the smaller value from the larger value.
+ 
+            </p>
+ 
+            <div class="form-grid">
+ 
+                <div>
+ 
+                    <label>Atom A</label>
+ 
+                    <select id="enA"></select>
+ 
+                </div>
+ 
+                <div>
+ 
+                    <label>Atom B</label>
+ 
+                    <select id="enB"></select>
+ 
+                </div>
+ 
+            </div>
+ 
+            <button class="btn"
+                    onclick="calculateEN()">
+ 
+                Calculate Difference
+ 
+            </button>
+ 
+            <div id="enResult"
+                 class="result">
+            </div>
+ 
+        </div>
+ 
+    </main>
+ 
+</section>
+ 
+ 
+<!-- =========================
+     IONIC BONDS
+========================= -->
+ 
+<section id="ionic" class="section">
+ 
+    <main>
+ 
+        <div class="section-title">
+ 
+            <h2>Ionic Bond Calculator</h2>
+ 
+            <p>
+                Use electronegativity difference to examine
+                ionic bonding.
+            </p>
+ 
+        </div>
+ 
+        <div class="card">
+ 
+            <h3>Ionic Bond Analysis</h3>
+ 
+            <p class="card-description">
+ 
+                Choose two elements. The calculator compares
+                their electronegativity values and identifies
+                the more electronegative atom.
+ 
+            </p>
+ 
+            <div class="form-grid">
+ 
+                <div>
+ 
+                    <label>Element 1</label>
+ 
+                    <select id="ionicA"></select>
+ 
+                </div>
+ 
+                <div>
+ 
+                    <label>Element 2</label>
+ 
+                    <select id="ionicB"></select>
+ 
+                </div>
+ 
+            </div>
+ 
+            <button class="btn"
+                    onclick="calculateIonic()">
+ 
+                Analyze Bond
+ 
+            </button>
+ 
+            <div id="ionicResult"
+                 class="result">
+            </div>
+ 
+        </div>
+ 
+    </main>
+ 
+</section>
+ 
+ 
+<!-- =========================
+     COVALENT BONDS
+========================= -->
+ 
+<section id="covalent" class="section">
+ 
+    <main>
+ 
+        <div class="section-title">
+ 
+            <h2>Covalent Bond Calculator</h2>
+ 
+            <p>
+                Determine whether a covalent bond is
+                polar or nonpolar.
+            </p>
+ 
+        </div>
+ 
+        <div class="card">
+ 
+            <h3>Covalent Bond Analysis</h3>
+ 
+            <p class="card-description">
+ 
+                The calculator finds ΔEN and compares
+                the result with common electronegativity ranges.
+ 
+            </p>
+ 
+            <div class="form-grid">
+ 
+                <div>
+ 
+                    <label>Element 1</label>
+ 
+                    <select id="covA"></select>
+ 
+                </div>
+ 
+                <div>
+ 
+                    <label>Element 2</label>
+ 
+                    <select id="covB"></select>
+ 
+                </div>
+ 
+            </div>
+ 
+            <button class="btn"
+                    onclick="calculateCovalent()">
+ 
+                Analyze Bond
+ 
+            </button>
+ 
+            <div id="covResult"
+                 class="result">
+            </div>
+ 
+        </div>
+ 
+    </main>
+ 
+</section>
+ 
+ 
+<footer>
+ 
+    ChemCheck — A Mathematics and Chemistry Learning Project
+ 
+</footer>
+ 
+ 
+<script>
+ 
+/* =========================================================
+   ELEMENT DATABASE
+========================================================= */
+ 
+const elements = [
+ 
+{n:1,s:"H",name:"Hydrogen",m:1.008,en:2.20,c:"+1/-1"},
+{n:2,s:"He",name:"Helium",m:4.003,en:null,c:"0"},
+{n:3,s:"Li",name:"Lithium",m:6.94,en:0.98,c:"+1"},
+{n:4,s:"Be",name:"Beryllium",m:9.012,en:1.57,c:"+2"},
+{n:5,s:"B",name:"Boron",m:10.81,en:2.04,c:"+3"},
+{n:6,s:"C",name:"Carbon",m:12.011,en:2.55,c:"+4/-4"},
+{n:7,s:"N",name:"Nitrogen",m:14.007,en:3.04,c:"-3/+3/+5"},
+{n:8,s:"O",name:"Oxygen",m:15.999,en:3.44,c:"-2"},
+{n:9,s:"F",name:"Fluorine",m:18.998,en:3.98,c:"-1"},
+{n:10,s:"Ne",name:"Neon",m:20.180,en:null,c:"0"},
+ 
+{n:11,s:"Na",name:"Sodium",m:22.990,en:0.93,c:"+1"},
+{n:12,s:"Mg",name:"Magnesium",m:24.305,en:1.31,c:"+2"},
+{n:13,s:"Al",name:"Aluminum",m:26.982,en:1.61,c:"+3"},
+{n:14,s:"Si",name:"Silicon",m:28.085,en:1.90,c:"+4/-4"},
+{n:15,s:"P",name:"Phosphorus",m:30.974,en:2.19,c:"-3/+3/+5"},
+{n:16,s:"S",name:"Sulfur",m:32.06,en:2.58,c:"-2/+4/+6"},
+{n:17,s:"Cl",name:"Chlorine",m:35.45,en:3.16,c:"-1/+1/+3/+5/+7"},
+{n:18,s:"Ar",name:"Argon",m:39.948,en:null,c:"0"},
+ 
+{n:19,s:"K",name:"Potassium",m:39.098,en:0.82,c:"+1"},
+{n:20,s:"Ca",name:"Calcium",m:40.078,en:1.00,c:"+2"},
+{n:21,s:"Sc",name:"Scandium",m:44.956,en:1.36,c:"+3"},
+{n:22,s:"Ti",name:"Titanium",m:47.867,en:1.54,c:"+2/+3/+4"},
+{n:23,s:"V",name:"Vanadium",m:50.942,en:1.63,c:"+2/+3/+4/+5"},
+{n:24,s:"Cr",name:"Chromium",m:51.996,en:1.66,c:"+2/+3/+6"},
+{n:25,s:"Mn",name:"Manganese",m:54.938,en:1.55,c:"+2/+4/+7"},
+{n:26,s:"Fe",name:"Iron",m:55.845,en:1.83,c:"+2/+3"},
+{n:27,s:"Co",name:"Cobalt",m:58.933,en:1.88,c:"+2/+3"},
+{n:28,s:"Ni",name:"Nickel",m:58.693,en:1.91,c:"+2/+3"},
+{n:29,s:"Cu",name:"Copper",m:63.546,en:1.90,c:"+1/+2"},
+{n:30,s:"Zn",name:"Zinc",m:65.38,en:1.65,c:"+2"},
+ 
+{n:31,s:"Ga",name:"Gallium",m:69.723,en:1.81,c:"+3"},
+{n:32,s:"Ge",name:"Germanium",m:72.630,en:2.01,c:"+2/+4"},
+{n:33,s:"As",name:"Arsenic",m:74.922,en:2.18,c:"-3/+3/+5"},
+{n:34,s:"Se",name:"Selenium",m:78.971,en:2.55,c:"-2/+4/+6"},
+{n:35,s:"Br",name:"Bromine",m:79.904,en:2.96,c:"-1/+1/+3/+5/+7"},
+{n:36,s:"Kr",name:"Krypton",m:83.798,en:3.00,c:"0"},
+ 
+{n:37,s:"Rb",name:"Rubidium",m:85.468,en:0.82,c:"+1"},
+{n:38,s:"Sr",name:"Strontium",m:87.62,en:0.95,c:"+2"},
+{n:39,s:"Y",name:"Yttrium",m:88.906,en:1.22,c:"+3"},
+{n:40,s:"Zr",name:"Zirconium",m:91.224,en:1.33,c:"+4"},
+{n:41,s:"Nb",name:"Niobium",m:92.906,en:1.60,c:"+3/+5"},
+{n:42,s:"Mo",name:"Molybdenum",m:95.95,en:2.16,c:"+2/+3/+4/+5/+6"},
+{n:43,s:"Tc",name:"Technetium",m:98,en:1.90,c:"+4/+7"},
+{n:44,s:"Ru",name:"Ruthenium",m:101.07,en:2.20,c:"+3/+4"},
+{n:45,s:"Rh",name:"Rhodium",m:102.91,en:2.28,c:"+3"},
+{n:46,s:"Pd",name:"Palladium",m:106.42,en:2.20,c:"+2/+4"},
+{n:47,s:"Ag",name:"Silver",m:107.868,en:1.93,c:"+1"},
+{n:48,s:"Cd",name:"Cadmium",m:112.414,en:1.69,c:"+2"},
+ 
+{n:49,s:"In",name:"Indium",m:114.818,en:1.78,c:"+3"},
+{n:50,s:"Sn",name:"Tin",m:118.710,en:1.96,c:"+2/+4"},
+{n:51,s:"Sb",name:"Antimony",m:121.760,en:2.05,c:"-3/+3/+5"},
+{n:52,s:"Te",name:"Tellurium",m:127.60,en:2.10,c:"-2/+4/+6"},
+{n:53,s:"I",name:"Iodine",m:126.904,en:2.66,c:"-1/+1/+3/+5/+7"},
+{n:54,s:"Xe",name:"Xenon",m:131.293,en:2.60,c:"0/+2/+4/+6"},
+ 
+{n:55,s:"Cs",name:"Cesium",m:132.905,en:0.79,c:"+1"},
+{n:56,s:"Ba",name:"Barium",m:137.327,en:0.89,c:"+2"},
+{n:57,s:"La",name:"Lanthanum",m:138.905,en:1.10,c:"+3"},
+{n:58,s:"Ce",name:"Cerium",m:140.116,en:1.12,c:"+3/+4"},
+{n:59,s:"Pr",name:"Praseodymium",m:140.908,en:1.13,c:"+3"},
+{n:60,s:"Nd",name:"Neodymium",m:144.242,en:1.14,c:"+3"},
+ 
+{n:61,s:"Pm",name:"Promethium",m:145,en:1.13,c:"+3"},
+{n:62,s:"Sm",name:"Samarium",m:150.36,en:1.17,c:"+2/+3"},
+{n:63,s:"Eu",name:"Europium",m:151.964,en:1.20,c:"+2/+3"},
+{n:64,s:"Gd",name:"Gadolinium",m:157.25,en:1.20,c:"+3"},
+{n:65,s:"Tb",name:"Terbium",m:158.925,en:1.10,c:"+3/+4"},
+{n:66,s:"Dy",name:"Dysprosium",m:162.500,en:1.22,c:"+3"},
+{n:67,s:"Ho",name:"Holmium",m:164.930,en:1.23,c:"+3"},
+{n:68,s:"Er",name:"Erbium",m:167.259,en:1.24,c:"+3"},
+{n:69,s:"Tm",name:"Thulium",m:168.934,en:1.25,c:"+3"},
+{n:70,s:"Yb",name:"Ytterbium",m:173.045,en:1.10,c:"+2/+3"},
+{n:71,s:"Lu",name:"Lutetium",m:174.967,en:1.27,c:"+3"},
+ 
+{n:72,s:"Hf",name:"Hafnium",m:178.49,en:1.30,c:"+4"},
+{n:73,s:"Ta",name:"Tantalum",m:180.948,en:1.50,c:"+5"},
+{n:74,s:"W",name:"Tungsten",m:183.84,en:2.36,c:"+2/+3/+4/+5/+6"},
+{n:75,s:"Re",name:"Rhenium",m:186.207,en:1.90,c:"+4/+6/+7"},
+{n:76,s:"Os",name:"Osmium",m:190.23,en:2.20,c:"+3/+4/+6/+8"},
+{n:77,s:"Ir",name:"Iridium",m:192.217,en:2.20,c:"+3/+4"},
+{n:78,s:"Pt",name:"Platinum",m:195.084,en:2.28,c:"+2/+4"},
+{n:79,s:"Au",name:"Gold",m:196.967,en:2.54,c:"+1/+3"},
+{n:80,s:"Hg",name:"Mercury",m:200.592,en:2.00,c:"+1/+2"},
+ 
+{n:81,s:"Tl",name:"Thallium",m:204.38,en:1.62,c:"+1/+3"},
+{n:82,s:"Pb",name:"Lead",m:207.2,en:2.33,c:"+2/+4"},
+{n:83,s:"Bi",name:"Bismuth",m:208.980,en:2.02,c:"+3/+5"},
+{n:84,s:"Po",name:"Polonium",m:209,en:2.00,c:"+2/+4/+6"},
+{n:85,s:"At",name:"Astatine",m:210,en:2.20,c:"-1/+1/+3/+5/+7"},
+{n:86,s:"Rn",name:"Radon",m:222,en:null,c:"0"},
+ 
+{n:87,s:"Fr",name:"Francium",m:223,en:0.70,c:"+1"},
+{n:88,s:"Ra",name:"Radium",m:226,en:0.90,c:"+2"},
+{n:89,s:"Ac",name:"Actinium",m:227,en:1.10,c:"+3"},
+{n:90,s:"Th",name:"Thorium",m:232.038,en:1.30,c:"+4"},
+{n:91,s:"Pa",name:"Protactinium",m:231.036,en:1.50,c:"+4/+5"},
+{n:92,s:"U",name:"Uranium",m:238.029,en:1.38,c:"+3/+4/+5/+6"},
+ 
+{n:93,s:"Np",name:"Neptunium",m:237,en:1.36,c:"+3/+4/+5/+6/+7"},
+{n:94,s:"Pu",name:"Plutonium",m:244,en:1.28,c:"+3/+4/+5/+6"},
+{n:95,s:"Am",name:"Americium",m:243,en:1.30,c:"+3/+4/+5/+6"},
+{n:96,s:"Cm",name:"Curium",m:247,en:1.30,c:"+3"},
+{n:97,s:"Bk",name:"Berkelium",m:247,en:1.30,c:"+3/+4"},
+{n:98,s:"Cf",name:"Californium",m:251,en:1.30,c:"+3"},
+{n:99,s:"Es",name:"Einsteinium",m:252,en:1.30,c:"+3"},
+{n:100,s:"Fm",name:"Fermium",m:257,en:1.30,c:"+3"},
+{n:101,s:"Md",name:"Mendelevium",m:258,en:1.30,c:"+2/+3"},
+{n:102,s:"No",name:"Nobelium",m:259,en:1.30,c:"+2/+3"},
+{n:103,s:"Lr",name:"Lawrencium",m:266,en:1.30,c:"+3"},
+ 
+{n:104,s:"Rf",name:"Rutherfordium",m:267,en:null,c:"+4"},
+{n:105,s:"Db",name:"Dubnium",m:268,en:null,c:"+5"},
+{n:106,s:"Sg",name:"Seaborgium",m:269,en:null,c:"+6"},
+{n:107,s:"Bh",name:"Bohrium",m:270,en:null,c:"+7"},
+{n:108,s:"Hs",name:"Hassium",m:277,en:null,c:"+8"},
+{n:109,s:"Mt",name:"Meitnerium",m:278,en:null,c:"+3/+4"},
+{n:110,s:"Ds",name:"Darmstadtium",m:281,en:null,c:"+2/+4"},
+{n:111,s:"Rg",name:"Roentgenium",m:282,en:null,c:"+1/+3"},
+{n:112,s:"Cn",name:"Copernicium",m:285,en:null,c:"+2"},
+{n:113,s:"Nh",name:"Nihonium",m:286,en:null,c:"+1/+3"},
+{n:114,s:"Fl",name:"Flerovium",m:289,en:null,c:"+2/+4"},
+{n:115,s:"Mc",name:"Moscovium",m:290,en:null,c:"+1/+3"},
+{n:116,s:"Lv",name:"Livermorium",m:293,en:null,c:"+2/+4"},
+{n:117,s:"Ts",name:"Tennessine",m:294,en:null,c:"-1/+1/+3/+5"},
+{n:118,s:"Og",name:"Oganesson",m:294,en:null,c:"0"}
+ 
+];
+ 
+ 
+/* =========================================================
+   NAVIGATION
+========================================================= */
+ 
+function showSection(sectionId, button) {
+ 
+    document.querySelectorAll(".section").forEach(section => {
+        section.classList.remove("active");
+    });
+ 
+    document.getElementById(sectionId).classList.add("active");
+ 
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+ 
+    if (button) {
+        button.classList.add("active");
+    }
+ 
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+ 
+ 
+/* =========================================================
+   PERIODIC TABLE
+========================================================= */
+ 
+function createPeriodicTable() {
+ 
+    const table = document.getElementById("periodicTable");
+ 
+    let html = "";
+ 
+    const positions = [];
+ 
+    elements.forEach(el => {
+ 
+        let row;
+        let col;
+ 
+        if (el.n === 1) {
+            row = 1;
+            col = 1;
+        }
+ 
+        else if (el.n === 2) {
+            row = 1;
+            col = 18;
+        }
+ 
+        else if (el.n >= 3 && el.n <= 10) {
+ 
+            row = 2;
+ 
+            if (el.n <= 4)
+                col = el.n - 2;
+            else
+                col = el.n + 8;
+ 
+        }
+ 
+        else if (el.n >= 11 && el.n <= 18) {
+ 
+            row = 3;
+ 
+            if (el.n <= 12)
+                col = el.n - 10;
+            else
+                col = el.n;
+ 
+        }
+ 
+        else if (el.n >= 19 && el.n <= 36) {
+ 
+            row = 4;
+            col = el.n - 18;
+ 
+        }
+ 
+        else if (el.n >= 37 && el.n <= 54) {
+ 
+            row = 5;
+            col = el.n - 36;
+ 
+        }
+ 
+        else if (el.n >= 55 && el.n <= 56) {
+ 
+            row = 6;
+            col = el.n - 54;
+ 
+        }
+ 
+        else if (el.n >= 57 && el.n <= 71) {
+ 
+            row = 8;
+            col = el.n - 56;
+ 
+        }
+ 
+        else if (el.n >= 72 && el.n <= 86) {
+ 
+            row = 6;
+            col = el.n - 59;
+ 
+        }
+ 
+        else if (el.n >= 87 && el.n <= 88) {
+ 
+            row = 7;
+            col = el.n - 86;
+ 
+        }
+ 
+        else if (el.n >= 89 && el.n <= 103) {
+ 
+            row = 9;
+            col = el.n - 88;
+ 
+        }
+ 
+        else if (el.n >= 104 && el.n <= 118) {
+ 
+            row = 7;
+            col = el.n - 86;
+ 
+        }
+ 
+        if (row && col) {
+ 
+            positions.push({
+                el,
+                row,
+                col
+            });
+ 
+        }
+ 
+    });
+ 
+ 
+    for (let row = 1; row <= 9; row++) {
+ 
+        for (let col = 1; col <= 18; col++) {
+ 
+            const item = positions.find(
+                p => p.row === row && p.col === col
+            );
+ 
+            if (item) {
+ 
+                const el = item.el;
+ 
+                html += `
+ 
+                    <div class="element"
+                         style="grid-column:${col};
+                                grid-row:${row}"
+                         onclick="selectElement(${el.n})">
+ 
+                        <div class="number">
+                            ${el.n}
+                        </div>
+ 
+                        <div class="symbol">
+                            ${el.s}
+                        </div>
+ 
+                        <div class="name">
+                            ${el.name}
+                        </div>
+ 
+                    </div>
+ 
+                `;
+ 
+            }
+ 
+            else {
+ 
+                html += `
+ 
+                    <div class="empty"
+                         style="grid-column:${col};
+                                grid-row:${row}">
+                    </div>
+ 
+                `;
+ 
+            }
+ 
+        }
+ 
+    }
+ 
+    table.innerHTML = html;
+}
+ 
+ 
+function selectElement(number) {
+ 
+    const el = elements.find(e => e.n === number);
+ 
+    if (!el) return;
+ 
+    document.getElementById("elementInfo")
+        .classList.add("show");
+ 
+    document.getElementById("selectedElement")
+        .textContent =
+        `${el.name} (${el.s})`;
+ 
+    document.getElementById("atomicNumber")
+        .textContent = el.n;
+ 
+    document.getElementById("atomicMass")
+        .textContent = el.m;
+ 
+    document.getElementById("commonCharge")
+        .textContent = el.c;
+ 
+    document.getElementById("elementEN")
+        .textContent =
+        el.en === null ? "N/A" : el.en;
+}
+ 
+ 
+/* =========================================================
+   DROPDOWNS
+========================================================= */
+ 
+function setupDropdowns() {
+ 
+    const dropdowns = [
+        "enA",
+        "enB",
+        "ionicA",
+        "ionicB",
+        "covA",
+        "covB"
+    ];
+ 
+    dropdowns.forEach(id => {
+ 
+        const select =
+            document.getElementById(id);
+ 
+        elements.forEach(el => {
+ 
+            const option =
+                document.createElement("option");
+ 
+            option.value = el.n;
+ 
+            option.textContent =
+                `${el.s} — ${el.name}` +
+                (
+                    el.en !== null
+                    ? ` (EN ${el.en})`
+                    : " (EN N/A)"
+                );
+ 
+            select.appendChild(option);
+ 
+        });
+ 
+    });
+ 
+ 
+    /* Default examples */
+ 
+    document.getElementById("enA").value = 11;
+    document.getElementById("enB").value = 17;
+ 
+    document.getElementById("ionicA").value = 11;
+    document.getElementById("ionicB").value = 17;
+ 
+    document.getElementById("covA").value = 1;
+    document.getElementById("covB").value = 8;
+}
+ 
+ 
+/* =========================================================
+   ATOMIC CALCULATOR
+========================================================= */
+ 
+function calculateAtom() {
+ 
+    let p =
+        document.getElementById("protons").value;
+ 
+    let n =
+        document.getElementById("neutrons").value;
+ 
+    let e =
+        document.getElementById("electrons").value;
+ 
+ 
+    p = p === "" ? null : Number(p);
+    n = n === "" ? null : Number(n);
+    e = e === "" ? null : Number(e);
+ 
+ 
+    const result =
+        document.getElementById("atomicResult");
+ 
+ 
+    if (
+        (p !== null && p < 0) ||
+        (n !== null && n < 0) ||
+        (e !== null && e < 0)
+    ) {
+ 
+        result.innerHTML = `
+ 
+            <h3>Invalid input</h3>
+ 
+            <p class="error">
+                Particle counts cannot be negative.
+            </p>
+ 
+        `;
+ 
+        result.classList.add("show");
+ 
+        return;
+    }
+ 
+ 
+    if (p === null) {
+ 
+        result.innerHTML = `
+ 
+            <h3>Protons cannot be determined</h3>
+ 
+            <p class="error">
+                Enter the number of protons or the atomic number.
+            </p>
+ 
+        `;
+ 
+        result.classList.add("show");
+ 
+        return;
+    }
+ 
+ 
+    if (n === null && e === null) {
+ 
+        result.innerHTML = `
+ 
+            <h3>Enter more information</h3>
+ 
+            <p class="error">
+                Enter at least one additional particle value.
+            </p>
+ 
+        `;
+ 
+        result.classList.add("show");
+ 
+        return;
+    }
+ 
+ 
+    if (n !== null && e !== null) {
+ 
+        const mass = p + n;
+        const charge = p - e;
+ 
+        result.innerHTML = `
+ 
+            <h3>Atomic Calculation</h3>
+ 
+            <div class="result-value">
+                Mass Number: ${mass}
+            </div>
+ 
+            <div class="result-value">
+                Net Charge: ${formatCharge(charge)}
+            </div>
+ 
+            <div class="formula">
+ 
+                Mass number = protons + neutrons<br>
+ 
+                = ${p} + ${n}<br>
+ 
+                = ${mass}
+ 
+                <br><br>
+ 
+                Net charge = protons − electrons<br>
+ 
+                = ${p} − ${e}<br>
+ 
+                = ${formatCharge(charge)}
+ 
+            </div>
+ 
+        `;
+ 
+    }
+ 
+ 
+    else if (n !== null) {
+ 
+        const mass = p + n;
+ 
+        result.innerHTML = `
+ 
+            <h3>Atomic Calculation</h3>
+ 
+            <div class="result-value">
+                Mass Number: ${mass}
+            </div>
+ 
+            <div class="formula">
+ 
+                Mass number = protons + neutrons<br>
+ 
+                = ${p} + ${n}<br>
+ 
+                = ${mass}
+ 
+            </div>
+ 
+            <p class="card-description"
+               style="margin-top:15px;">
+ 
+                Enter electrons to calculate net charge.
+ 
+            </p>
+ 
+        `;
+ 
+    }
+ 
+ 
+    else {
+ 
+        const charge = p - e;
+ 
+        result.innerHTML = `
+ 
+            <h3>Atomic Calculation</h3>
+ 
+            <div class="result-value">
+ 
+                Net Charge:
+                ${formatCharge(charge)}
+ 
+            </div>
+ 
+            <div class="formula">
+ 
+                Net charge = protons − electrons<br>
+ 
+                = ${p} − ${e}<br>
+ 
+                = ${formatCharge(charge)}
+ 
+            </div>
+ 
+            <p class="card-description"
+               style="margin-top:15px;">
+ 
+                Enter neutrons to calculate mass number.
+ 
+            </p>
+ 
+        `;
+ 
+    }
+ 
+ 
+    result.classList.add("show");
+}
+ 
+ 
+function formatCharge(charge) {
+ 
+    if (charge === 0)
+        return "0";
+ 
+    return charge > 0
+        ? `+${charge}`
+        : `${charge}`;
+}
+ 
+ 
+function clearAtomic() {
+ 
+    document.getElementById("protons").value = "";
+ 
+    document.getElementById("neutrons").value = "";
+ 
+    document.getElementById("electrons").value = "";
+ 
+    document.getElementById("atomicResult")
+        .classList.remove("show");
+}
+ 
+ 
+/* =========================================================
+   GET ELEMENT
+========================================================= */
+ 
+function getSelectedElement(id) {
+ 
+    const number =
+        Number(document.getElementById(id).value);
+ 
+    return elements.find(e => e.n === number);
+}
+ 
+ 
+/* =========================================================
+   ELECTRONEGATIVITY
+========================================================= */
+ 
+function calculateEN() {
+ 
+    const a =
+        getSelectedElement("enA");
+ 
+    const b =
+        getSelectedElement("enB");
+ 
+    const result =
+        document.getElementById("enResult");
+ 
+ 
+    if (a.en === null || b.en === null) {
+ 
+        result.innerHTML = `
+ 
+            <h3>Electronegativity unavailable</h3>
+ 
+            <p class="error">
+                One or both selected elements do not have
+                a standard electronegativity value available.
+            </p>
+ 
+        `;
+ 
+        result.classList.add("show");
+ 
+        return;
+    }
+ 
+ 
+    const difference =
+        Math.abs(a.en - b.en);
+ 
+ 
+    let classification;
+ 
+ 
+    if (difference <= 0.40) {
+ 
+        classification =
+            "Nonpolar covalent";
+ 
+    }
+ 
+    else if (difference < 1.70) {
+ 
+        classification =
+            "Polar covalent";
+ 
+    }
+ 
+    else {
+ 
+        classification =
+            "Ionic";
+ 
+    }
+ 
+ 
+    result.innerHTML = `
+ 
+        <h3>Electronegativity Result</h3>
+ 
+        <div class="result-value">
+ 
+            ΔEN = ${difference.toFixed(2)}
+ 
+        </div>
+ 
+        <div class="formula">
+ 
+            ΔEN = |EN₁ − EN₂|<br>
+ 
+            = |${a.en} − ${b.en}|<br>
+ 
+            = ${difference.toFixed(2)}
+ 
+        </div>
+ 
+        <div class="chem-equation">
+ 
+            Classification:
+            <strong>${classification}</strong>
+ 
+        </div>
+ 
+        <p class="card-description"
+           style="margin-top:15px;">
+ 
+            Common classroom guideline:
+            ≤ 0.40 = nonpolar covalent,
+            0.41–1.69 = polar covalent,
+            ≥ 1.70 = ionic.
+ 
+        </p>
+ 
+    `;
+ 
+    result.classList.add("show");
+}
+ 
+ 
+/* =========================================================
+   IONIC BONDS
+========================================================= */
+ 
+function calculateIonic() {
+ 
+    const a =
+        getSelectedElement("ionicA");
+ 
+    const b =
+        getSelectedElement("ionicB");
+ 
+    const result =
+        document.getElementById("ionicResult");
+ 
+ 
+    if (a.en === null || b.en === null) {
+ 
+        result.innerHTML = `
+ 
+            <h3>Cannot calculate</h3>
+ 
+            <p class="error">
+ 
+                Electronegativity data is unavailable
+                for one or both elements.
+ 
+            </p>
+ 
+        `;
+ 
+        result.classList.add("show");
+ 
+        return;
+    }
+ 
+ 
+    const difference =
+        Math.abs(a.en - b.en);
+ 
+ 
+    const moreElectronegative =
+        a.en > b.en ? a : b;
+ 
+ 
+    const lessElectronegative =
+        a.en < b.en ? a : b;
+ 
+ 
+    const isIonic =
+        difference >= 1.70;
+ 
+ 
+    result.innerHTML = `
+ 
+        <h3>Ionic Bond Analysis</h3>
+ 
+        <div class="result-value">
+ 
+            ΔEN = ${difference.toFixed(2)}
+ 
+        </div>
+ 
+        <div class="formula">
+ 
+            ΔEN = |${a.en} − ${b.en}|<br>
+ 
+            ΔEN = ${difference.toFixed(2)}
+ 
+        </div>
+ 
+        <div class="chem-equation">
+ 
+            ${
+                isIonic
+                ? "Ionic range reached"
+                : "Below the common ionic range"
+            }
+ 
+        </div>
+ 
+        <p style="margin-top:15px;color:#5d5264;">
+ 
+            More electronegative atom:
+            <strong>
+                ${moreElectronegative.name}
+                (${moreElectronegative.s})
+            </strong>
+ 
+        </p>
+ 
+        <p style="margin-top:7px;color:#5d5264;">
+ 
+            Less electronegative atom:
+            <strong>
+                ${lessElectronegative.name}
+                (${lessElectronegative.s})
+            </strong>
+ 
+        </p>
+ 
+        <p class="card-description"
+           style="margin-top:15px;">
+ 
+            ${
+                isIonic
+                ? "The electronegativity difference is within the common ionic range."
+                : "The electronegativity difference is below the common ionic range."
+            }
+ 
+        </p>
+ 
+    `;
+ 
+    result.classList.add("show");
+}
+ 
+ 
+/* =========================================================
+   COVALENT BONDS
+========================================================= */
+ 
+function calculateCovalent() {
+ 
+    const a =
+        getSelectedElement("covA");
+ 
+    const b =
+        getSelectedElement("covB");
+ 
+    const result =
+        document.getElementById("covResult");
+ 
+ 
+    if (a.en === null || b.en === null) {
+ 
+        result.innerHTML = `
+ 
+            <h3>Cannot calculate</h3>
+ 
+            <p class="error">
+ 
+                Electronegativity data is unavailable
+                for one or both elements.
+ 
+            </p>
+ 
+        `;
+ 
+        result.classList.add("show");
+ 
+        return;
+    }
+ 
+ 
+    const difference =
+        Math.abs(a.en - b.en);
+ 
+ 
+    let type;
+    let explanation;
+ 
+ 
+    if (difference <= 0.40) {
+ 
+        type =
+            "Nonpolar covalent";
+ 
+        explanation =
+            "The electronegativity values are close, so electrons are shared relatively evenly.";
+ 
+    }
+ 
+    else if (difference < 1.70) {
+ 
+        type =
+            "Polar covalent";
+ 
+        explanation =
+            "The difference causes unequal sharing of electrons between the atoms.";
+ 
+    }
+ 
+    else {
+ 
+        type =
+            "Not classified as covalent";
+ 
+        explanation =
+            "The electronegativity difference reaches the common ionic range.";
+ 
+    }
+ 
+ 
+    result.innerHTML = `
+ 
+        <h3>Covalent Bond Result</h3>
+ 
+        <div class="result-value">
+ 
+            ${type}
+ 
+        </div>
+ 
+        <div class="formula">
+ 
+            ΔEN = |EN₁ − EN₂|<br>
+ 
+            = |${a.en} − ${b.en}|<br>
+ 
+            = ${difference.toFixed(2)}
+ 
+        </div>
+ 
+        <div class="chem-equation">
+ 
+            ΔEN = ${difference.toFixed(2)}
+ 
+        </div>
+ 
+        <p style="margin-top:15px;color:#5d5264;">
+ 
+            ${explanation}
+ 
+        </p>
+ 
+        <p class="card-description"
+           style="margin-top:15px;">
+ 
+            Guideline used:
+            0.00–0.40 = nonpolar covalent;
+            0.41–1.69 = polar covalent;
+            1.70 or higher = ionic.
+ 
+        </p>
+ 
+    `;
+ 
+    result.classList.add("show");
+}
+ 
+ 
+/* =========================================================
+   INITIALIZE
+========================================================= */
+ 
+createPeriodicTable();
+ 
+setupDropdowns();
+ 
+</script>
+ 
+</body>
+</html>
