@@ -168,6 +168,88 @@ main {
     font-size: 14px;
     margin-bottom: 20px;
 }
+
+/* =========================
+   ABOUT US & TEAM
+========================= */
+
+.about-team {
+    margin-top: 25px;
+}
+
+.about-box {
+    background: #ffffff;
+    border: 1px solid #ded1e8;
+    border-radius: 9px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(67, 43, 84, 0.06);
+}
+
+.about-box h2,
+.team-title h2 {
+    color: #39244e;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.about-box p {
+    color: #62596b;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.team-title {
+    margin-bottom: 20px;
+}
+
+.team-title p {
+    color: #756a7e;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.team-member {
+    background: #ffffff;
+    border: 1px solid #ded1e8;
+    border-radius: 9px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(67, 43, 84, 0.06);
+}
+
+.team-member img {
+    width: 100%;
+    max-width: 150px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 14px;
+    border-radius: 8px;
+    border: 1px solid #cdbddd;
+    background: #f5eef9;
+}
+
+.team-member h3 {
+    color: #69438b;
+    font-size: 17px;
+    margin-bottom: 4px;
+}
+
+.team-member p {
+    color: #756d7c;
+    font-size: 13px;
+}
+
+@media (max-width: 900px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
  
 /* =========================
    FORMS
@@ -406,6 +488,10 @@ footer {
     .card {
         padding: 18px;
     }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
 </head>
@@ -437,7 +523,7 @@ footer {
  
         <button class="nav-btn"
                 onclick="showSection('electro', this)">
-            Electronegativity
+            Electronegativity Checker
         </button>
  
        
@@ -511,6 +597,67 @@ footer {
  
         </div>
  
+
+        <!-- =========================
+             ABOUT US & OUR TEAM
+        ========================= -->
+        <div class="about-team">
+
+            <div class="about-box">
+                <h2>About Us</h2>
+                <p>
+                    This website was created as our final project for
+                    Mathematics in the Modern World. We developed this
+                    project to help people who are interested in science,
+                    as well as those who want to explore the field of science,
+                    understand basic scientific concepts and the mathematical
+                    computations connected to them. Through the interactive
+                    tools provided by ChemCheck, users can learn and practice
+                    basic chemistry concepts in a simple and accessible way.
+                </p>
+            </div>
+
+            <div class="team-title">
+                <h2>Our Team</h2>
+                <p>Meet the five members who worked together to create ChemCheck.</p>
+            </div>
+
+            <div class="team-grid">
+
+                <div class="team-member">
+                    <img src="images/member1.jpg" alt="Team Member 1">
+                    <h3>Jeorgina Sapon</h3>
+                    <p>Member</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/member2.jpg" alt="Team Member 2">
+                    <h3>Queen Dadong</h3>
+                    <p>Member</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/member3.jpg" alt="Team Member 3">
+                    <h3>Kris Balauro</h3>
+                    <p>Member</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/member4.jpg" alt="Team Member 4">
+                    <h3>Elijah De Ocampo</h3>
+                    <p>Member</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/member5.jpg" alt="Team Member 5">
+                    <h3>Roland Benedicto</h3>
+                    <p>Member</p>
+                </div>
+
+            </div>
+
+        </div>
+
     </main>
  
 </section>
