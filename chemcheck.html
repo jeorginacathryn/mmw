@@ -1,29 +1,34 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+
 <title>ChemCheck | Chemistry Calculator</title>
- 
+
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
- 
+
 body {
     background: #f4effa;
     color: #28212f;
     line-height: 1.5;
 }
- 
+
 /* =========================
    HEADER
 ========================= */
- 
+
 header {
     background: #35204d;
     border-bottom: 1px solid #4d3265;
@@ -36,23 +41,23 @@ header {
     z-index: 100;
     box-shadow: 0 2px 8px rgba(48, 27, 67, 0.15);
 }
- 
+
 .logo {
     font-size: 23px;
     font-weight: bold;
     color: #d8bdf0;
 }
- 
+
 .logo span {
     color: #ffffff;
 }
- 
+
 nav {
     display: flex;
     gap: 5px;
     flex-wrap: wrap;
 }
- 
+
 nav button {
     background: transparent;
     color: #ddd0e7;
@@ -62,45 +67,45 @@ nav button {
     border-radius: 5px;
     font-size: 13px;
 }
- 
+
 nav button:hover,
 nav button.active {
     background: #68468a;
     color: #ffffff;
 }
- 
+
 /* =========================
    HERO
 ========================= */
- 
+
 .hero {
     padding: 65px 7% 55px;
     max-width: 1100px;
     margin: auto;
 }
- 
+
 .hero small {
     color: #70469a;
     font-weight: bold;
     letter-spacing: 1.2px;
 }
- 
+
 .hero h1 {
     font-size: clamp(35px, 6vw, 58px);
     margin: 10px 0;
     color: #35204d;
 }
- 
+
 .hero h1 span {
     color: #7951a0;
 }
- 
+
 .hero p {
     max-width: 700px;
     color: #62596b;
     font-size: 16px;
 }
- 
+
 .math-note {
     margin-top: 25px;
     display: inline-block;
@@ -111,44 +116,44 @@ nav button.active {
     font-size: 14px;
     border-radius: 4px;
 }
- 
+
 /* =========================
    MAIN
 ========================= */
- 
+
 main {
     width: 86%;
     max-width: 1200px;
     margin: auto;
 }
- 
+
 .section {
     display: none;
     padding: 45px 0 70px;
 }
- 
+
 .section.active {
     display: block;
 }
- 
+
 .section-title {
     margin-bottom: 25px;
 }
- 
+
 .section-title h2 {
     color: #39244e;
     font-size: 30px;
     margin-bottom: 5px;
 }
- 
+
 .section-title p {
     color: #756a7e;
 }
- 
+
 /* =========================
    CARDS
 ========================= */
- 
+
 .card {
     background: #ffffff;
     border: 1px solid #ded1e8;
@@ -157,12 +162,12 @@ main {
     margin-bottom: 20px;
     box-shadow: 0 2px 8px rgba(67, 43, 84, 0.06);
 }
- 
+
 .card h3 {
     color: #69438b;
     margin-bottom: 8px;
 }
- 
+
 .card-description {
     color: #756d7c;
     font-size: 14px;
@@ -246,12 +251,14 @@ main {
 }
 
 @media (max-width: 900px) {
+
     .team-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
 }
 
- 
+
 /* =========================
    GAS LAWS
 ========================= */
@@ -395,6 +402,7 @@ main {
 }
 
 @media (max-width: 800px) {
+
     .gas-input-grid,
     .gas-result-layout {
         grid-template-columns: 1fr;
@@ -403,25 +411,26 @@ main {
     .gas-law-heading {
         flex-direction: column;
     }
+
 }
 
 /* =========================
    FORMS
 ========================= */
- 
+
 .form-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 15px;
 }
- 
+
 label {
     display: block;
     color: #51465a;
     font-size: 14px;
     margin-bottom: 6px;
 }
- 
+
 input,
 select {
     width: 100%;
@@ -432,13 +441,13 @@ select {
     border-radius: 5px;
     outline: none;
 }
- 
+
 input:focus,
 select:focus {
     border-color: #8153a7;
     box-shadow: 0 0 0 2px #eadff2;
 }
- 
+
 .btn {
     margin-top: 18px;
     background: #704895;
@@ -449,26 +458,26 @@ select:focus {
     cursor: pointer;
     font-weight: bold;
 }
- 
+
 .btn:hover {
     background: #5e397e;
 }
- 
+
 .btn.secondary {
     background: #e9dff1;
     color: #563772;
     border: 1px solid #d2c1df;
     margin-left: 7px;
 }
- 
+
 .btn.secondary:hover {
     background: #dccce8;
 }
- 
+
 /* =========================
    RESULT
 ========================= */
- 
+
 .result {
     display: none;
     margin-top: 20px;
@@ -477,23 +486,23 @@ select:focus {
     border: 1px solid #d9c8e4;
     border-radius: 7px;
 }
- 
+
 .result.show {
     display: block;
 }
- 
+
 .result h3 {
     color: #69438b;
     margin-bottom: 12px;
 }
- 
+
 .result-value {
     font-size: 25px;
     font-weight: bold;
     color: #382449;
     margin: 8px 0;
 }
- 
+
 .formula {
     background: #eee4f5;
     border: 1px solid #d8c6e4;
@@ -504,27 +513,27 @@ select:focus {
     font-family: "Courier New", monospace;
     overflow-x: auto;
 }
- 
+
 .error {
     color: #a24f5b;
 }
- 
+
 /* =========================
    PERIODIC TABLE
 ========================= */
- 
+
 .table-wrapper {
     overflow-x: auto;
     padding-bottom: 10px;
 }
- 
+
 .periodic-table {
     min-width: 1000px;
     display: grid;
     grid-template-columns: repeat(18, 1fr);
     gap: 4px;
 }
- 
+
 .element {
     min-height: 65px;
     border: 1px solid #cdbbdd;
@@ -534,25 +543,25 @@ select:focus {
     cursor: pointer;
     transition: 0.15s;
 }
- 
+
 .element:hover {
     border-color: #7950a0;
     background: #e9dcf1;
     transform: translateY(-2px);
 }
- 
+
 .element .number {
     font-size: 9px;
     color: #76687e;
 }
- 
+
 .element .symbol {
     text-align: center;
     font-size: 19px;
     font-weight: bold;
     color: #68418b;
 }
- 
+
 .element .name {
     text-align: center;
     font-size: 8px;
@@ -560,40 +569,40 @@ select:focus {
     white-space: nowrap;
     overflow: hidden;
 }
- 
+
 .empty {
     min-height: 65px;
 }
- 
+
 .element-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 12px;
     margin-top: 20px;
 }
- 
+
 .info-box {
     background: #f5eff9;
     padding: 15px;
     border: 1px solid #ded0e7;
     border-radius: 5px;
 }
- 
+
 .info-box small {
     color: #776b80;
     display: block;
     margin-bottom: 3px;
 }
- 
+
 .info-box strong {
     font-size: 19px;
     color: #473250;
 }
- 
+
 /* =========================
    CHEMISTRY VISUAL
 ========================= */
- 
+
 .chem-equation {
     text-align: center;
     font-size: 20px;
@@ -604,11 +613,11 @@ select:focus {
     margin-top: 15px;
     border: 1px solid #dcc9e7;
 }
- 
+
 /* =========================
    FOOTER
 ========================= */
- 
+
 footer {
     text-align: center;
     padding: 30px;
@@ -617,7 +626,7 @@ footer {
     font-size: 13px;
     background: #eee7f3;
 }
- 
+
 @media (max-width: 700px) {
 
     .secondary-nav {
@@ -629,26 +638,25 @@ footer {
         white-space: nowrap;
     }
 
- 
     header {
         flex-direction: column;
         gap: 12px;
         align-items: flex-start;
     }
- 
+
     nav {
         width: 100%;
         overflow-x: auto;
     }
- 
+
     .hero {
         padding-top: 40px;
     }
- 
+
     main {
         width: 90%;
     }
- 
+
     .card {
         padding: 18px;
     }
@@ -656,123 +664,182 @@ footer {
     .team-grid {
         grid-template-columns: 1fr;
     }
+
 }
+
 </style>
+
 </head>
- 
+
 <body>
- 
+
 <header>
- 
+
     <div class="logo">
         Chem<span>Check</span>
     </div>
- 
+
     <nav>
- 
+
         <button class="nav-btn active"
                 onclick="showSection('home', this)">
             Home
         </button>
- 
+
         <button class="nav-btn"
                 onclick="showSection('periodic', this)">
             Periodic Table
         </button>
- 
+
         <button class="nav-btn"
                 onclick="showSection('atomic', this)">
             Atomic Calculator
         </button>
- 
+
         <button class="nav-btn"
                 onclick="showSection('electro', this)">
             Electronegativity Checker
         </button>
-        
+
         <button class="nav-btn"
-            onclick="showSection('gaslaws', this)">
-        Gas Laws
+                onclick="showSection('gaslaws', this)">
+            Gas Laws
         </button>
-       
- 
+
     </nav>
- 
+
 </header>
 
- 
 <!-- =========================
      HOME
 ========================= -->
- 
+
 <section id="home" class="section active">
- 
+
     <div class="hero">
- 
+
         <small>MATHEMATICS × CHEMISTRY</small>
- 
+
         <h1>
             Chemistry made<br>
             <span>calculable.</span>
         </h1>
- 
+
         <p>
             ChemCheck is a simple educational tool that demonstrates
-            how mathematical operations can be used to understand atoms,
-            ions, electronegativity, and chemical bonding.
+            how mathematical operations can be used to understand
+            atomic structure, ions, electronegativity, chemical bonding,
+            and gas laws. Through interactive calculators, a periodic table,
+            and graphical gas-law visualizations, users can explore how
+            mathematical relationships are applied in basic chemistry.
         </p>
- 
+
         <div class="math-note">
-            Addition • Subtraction • Differences • Numerical comparison
+            Addition • Subtraction • Multiplication • Division •
+            Ratios • Differences • Direct and Inverse Relationships •
+            Numerical Comparison • Graphical Analysis
         </div>
- 
+
     </div>
- 
+
     <main>
- 
+
         <div class="card">
- 
+
             <h3>What can you calculate?</h3>
- 
+
             <p class="card-description">
-                Select a tool above to explore the mathematical relationships
-                used in basic chemistry.
+                ChemCheck provides interactive tools for exploring basic
+                chemistry concepts through calculations, comparisons,
+                and graphical representations.
             </p>
- 
+
             <div class="form-grid">
- 
+
                 <div class="info-box">
-                    <small>Atomic structure</small>
-                    <strong>p + n = mass number</strong>
+                    <small>Periodic Table</small>
+                    <strong>
+                        Atomic number, mass, charge, and electronegativity
+                    </strong>
                 </div>
- 
+
                 <div class="info-box">
-                    <small>Net charge</small>
-                    <strong>p − e = charge</strong>
+                    <small>Atomic Calculator</small>
+                    <strong>
+                        Mass number and net charge
+                    </strong>
                 </div>
- 
+
                 <div class="info-box">
-                    <small>Electronegativity</small>
-                    <strong>|EN₁ − EN₂|</strong>
+                    <small>Electronegativity Checker</small>
+                    <strong>
+                        ΔEN and bond classification
+                    </strong>
                 </div>
- 
+
                 <div class="info-box">
-                    <small>Bond classification</small>
-                    <strong>Compare ΔEN</strong>
+                    <small>Ionic Bond Calculator</small>
+                    <strong>
+                        ΔEN and electronegative atom comparison
+                    </strong>
                 </div>
- 
+
+                <div class="info-box">
+                    <small>Covalent Bond Calculator</small>
+                    <strong>
+                        Polar or nonpolar covalent bonds
+                    </strong>
+                </div>
+
+                <div class="info-box">
+                    <small>Avogadro's Law</small>
+                    <strong>
+                        V₁ / n₁ = V₂ / n₂
+                    </strong>
+                </div>
+
+                <div class="info-box">
+                    <small>Boyle's Law</small>
+                    <strong>
+                        P₁V₁ = P₂V₂
+                    </strong>
+                </div>
+
+                <div class="info-box">
+                    <small>Charles' Law</small>
+                    <strong>
+                        V₁ / T₁ = V₂ / T₂
+                    </strong>
+                </div>
+
+                <div class="info-box">
+                    <small>Dalton's Law</small>
+                    <strong>
+                        Pₜ = Pₐ + Pᵦ + P𝑐 + P𝒹
+                    </strong>
+                </div>
+
+                <div class="info-box">
+                    <small>Gas Law Graphs</small>
+                    <strong>
+                        Visualize direct, inverse, and partial-pressure relationships
+                    </strong>
+                </div>
+
             </div>
- 
+
         </div>
- 
 
         <!-- =========================
              ABOUT US & OUR TEAM
         ========================= -->
+
         <div class="about-team">
 
             <div class="about-box">
+
                 <h2>About Us</h2>
+
                 <p>
                     This website was created as our final project for
                     Mathematics in the Modern World. We developed this
@@ -783,43 +850,69 @@ footer {
                     tools provided by ChemCheck, users can learn and practice
                     basic chemistry concepts in a simple and accessible way.
                 </p>
+
             </div>
 
             <div class="team-title">
+
                 <h2>Our Team</h2>
-                <p>Meet the five members who worked together to create ChemCheck.</p>
+
+                <p>
+                    Meet the five members who worked together to create ChemCheck.
+                </p>
+
             </div>
 
             <div class="team-grid">
 
                 <div class="team-member">
+
                     <img src="member1.jpg" alt="Team Member 1">
+
                     <h3>Jeorgina Sapon</h3>
+
                     <p>Member</p>
+
                 </div>
 
                 <div class="team-member">
+
                     <img src="member2.jpg" alt="Team Member 2">
+
                     <h3>Queen Dadong</h3>
+
                     <p>Member</p>
+
                 </div>
 
                 <div class="team-member">
+
                     <img src="member3.jpg" alt="Team Member 3">
+
                     <h3>Kris Balauro</h3>
+
                     <p>Member</p>
+
                 </div>
 
                 <div class="team-member">
+
                     <img src="member4.jpg" alt="Team Member 4">
+
                     <h3>Elijah De Ocampo</h3>
+
                     <p>Member</p>
+
                 </div>
 
                 <div class="team-member">
+
                     <img src="member5.jpeg" alt="Team Member 5">
+
                     <h3>Roland Benedicto</h3>
+
                     <p>Member</p>
+
                 </div>
 
             </div>
@@ -827,404 +920,398 @@ footer {
         </div>
 
     </main>
- 
+
 </section>
- 
- 
+
 <!-- =========================
      PERIODIC TABLE
 ========================= -->
- 
+
 <section id="periodic" class="section">
- 
+
     <main>
- 
+
         <div class="section-title">
- 
+
             <h2>Periodic Table</h2>
- 
+
             <p>
                 Select an element to view its basic atomic information.
             </p>
- 
+
         </div>
- 
+
         <div class="card">
- 
+
             <div class="table-wrapper">
- 
+
                 <div id="periodicTable"
                      class="periodic-table">
                 </div>
- 
+
             </div>
- 
+
             <div id="elementInfo"
                  class="result">
- 
+
                 <h3 id="selectedElement">
                     Select an element
                 </h3>
- 
+
                 <div class="element-info">
- 
+
                     <div class="info-box">
- 
+
                         <small>Atomic number</small>
- 
+
                         <strong id="atomicNumber">
                             —
                         </strong>
- 
+
                     </div>
- 
+
                     <div class="info-box">
- 
+
                         <small>Atomic mass</small>
- 
+
                         <strong id="atomicMass">
                             —
                         </strong>
- 
+
                     </div>
- 
+
                     <div class="info-box">
- 
+
                         <small>Common charge</small>
- 
+
                         <strong id="commonCharge">
                             —
                         </strong>
- 
+
                     </div>
- 
+
                     <div class="info-box">
- 
+
                         <small>Electronegativity</small>
- 
+
                         <strong id="elementEN">
                             —
                         </strong>
- 
+
                     </div>
- 
+
                 </div>
- 
+
                 <p class="card-description"
                    style="margin-top:15px;">
- 
+
                     Atomic mass represents the weighted average
                     of naturally occurring isotopes. Mass number
                     is calculated separately using protons + neutrons.
- 
+
                 </p>
- 
+
             </div>
- 
+
         </div>
- 
+
     </main>
- 
+
 </section>
- 
- 
+
 <!-- =========================
      ATOMIC CALCULATOR
 ========================= -->
- 
+
 <section id="atomic" class="section">
- 
+
     <main>
- 
+
         <div class="section-title">
- 
+
             <h2>Atomic Calculator</h2>
- 
+
             <p>
                 Calculate protons, neutrons, electrons,
                 mass number, and net charge.
             </p>
- 
+
         </div>
- 
+
         <div class="card">
- 
+
             <h3>Enter atomic information</h3>
- 
+
             <p class="card-description">
- 
+
                 Enter the values you know. Leave one particle field
                 blank to calculate it when possible.
- 
+
             </p>
- 
+
             <div class="form-grid">
- 
+
                 <div>
- 
+
                     <label>Protons</label>
- 
+
                     <input id="protons"
                            type="number"
                            min="0"
                            placeholder="e.g. 11">
- 
+
                 </div>
- 
+
                 <div>
- 
+
                     <label>Neutrons</label>
- 
+
                     <input id="neutrons"
                            type="number"
                            min="0"
                            placeholder="e.g. 12">
- 
+
                 </div>
- 
+
                 <div>
- 
+
                     <label>Electrons</label>
- 
+
                     <input id="electrons"
                            type="number"
                            min="0"
                            placeholder="e.g. 10">
- 
+
                 </div>
- 
+
             </div>
- 
+
             <button class="btn"
                     onclick="calculateAtom()">
- 
+
                 Calculate
- 
+
             </button>
- 
+
             <button class="btn secondary"
                     onclick="clearAtomic()">
- 
+
                 Clear
- 
+
             </button>
- 
+
             <div id="atomicResult"
                  class="result">
             </div>
- 
+
         </div>
- 
+
     </main>
- 
+
 </section>
- 
- 
+
 <!-- =========================
      ELECTRONEGATIVITY
 ========================= -->
- 
+
 <section id="electro" class="section">
- 
+
     <main>
- 
+
         <div class="section-title">
- 
+
             <h2>Electronegativity Calculator</h2>
- 
+
             <p>
                 Calculate the difference between two
                 electronegativity values.
             </p>
- 
+
         </div>
- 
+
         <div class="card">
- 
+
             <h3>ΔEN Calculator</h3>
- 
+
             <p class="card-description">
- 
+
                 The electronegativity difference is found by
                 subtracting the smaller value from the larger value.
- 
+
             </p>
- 
+
             <div class="form-grid">
- 
+
                 <div>
- 
+
                     <label>Atom A</label>
- 
+
                     <select id="enA"></select>
- 
+
                 </div>
- 
+
                 <div>
- 
+
                     <label>Atom B</label>
- 
+
                     <select id="enB"></select>
- 
+
                 </div>
- 
+
             </div>
- 
+
             <button class="btn"
                     onclick="calculateEN()">
- 
+
                 Calculate Difference
- 
+
             </button>
- 
+
             <div id="enResult"
                  class="result">
             </div>
- 
+
         </div>
- 
+
     </main>
- 
+
 </section>
- 
- 
+
 <!-- =========================
      IONIC BONDS
 ========================= -->
- 
+
 <section id="ionic" class="section">
- 
+
     <main>
- 
+
         <div class="section-title">
- 
+
             <h2>Ionic Bond Calculator</h2>
- 
+
             <p>
                 Use electronegativity difference to examine
                 ionic bonding.
             </p>
- 
+
         </div>
- 
+
         <div class="card">
- 
+
             <h3>Ionic Bond Analysis</h3>
- 
+
             <p class="card-description">
- 
+
                 Choose two elements. The calculator compares
                 their electronegativity values and identifies
                 the more electronegative atom.
- 
+
             </p>
- 
+
             <div class="form-grid">
- 
+
                 <div>
- 
+
                     <label>Element 1</label>
- 
+
                     <select id="ionicA"></select>
- 
+
                 </div>
- 
+
                 <div>
- 
+
                     <label>Element 2</label>
- 
+
                     <select id="ionicB"></select>
- 
+
                 </div>
- 
+
             </div>
- 
+
             <button class="btn"
                     onclick="calculateIonic()">
- 
+
                 Analyze Bond
- 
+
             </button>
- 
+
             <div id="ionicResult"
                  class="result">
             </div>
- 
+
         </div>
- 
+
     </main>
- 
+
 </section>
- 
- 
+
 <!-- =========================
      COVALENT BONDS
 ========================= -->
- 
+
 <section id="covalent" class="section">
- 
+
     <main>
- 
+
         <div class="section-title">
- 
+
             <h2>Covalent Bond Calculator</h2>
- 
+
             <p>
                 Determine whether a covalent bond is
                 polar or nonpolar.
             </p>
- 
+
         </div>
- 
+
         <div class="card">
- 
+
             <h3>Covalent Bond Analysis</h3>
- 
+
             <p class="card-description">
- 
+
                 The calculator finds ΔEN and compares
                 the result with common electronegativity ranges.
- 
+
             </p>
- 
+
             <div class="form-grid">
- 
+
                 <div>
- 
+
                     <label>Element 1</label>
- 
+
                     <select id="covA"></select>
- 
+
                 </div>
- 
+
                 <div>
- 
+
                     <label>Element 2</label>
- 
+
                     <select id="covB"></select>
- 
+
                 </div>
- 
+
             </div>
- 
+
             <button class="btn"
                     onclick="calculateCovalent()">
- 
+
                 Analyze Bond
- 
+
             </button>
- 
+
             <div id="covResult"
                  class="result">
             </div>
- 
+
         </div>
- 
+
     </main>
- 
+
 </section>
- 
- 
+
 <!-- =========================
      GAS LAWS
 ========================= -->
@@ -1253,46 +1340,103 @@ footer {
             <div class="gas-law-heading">
 
                 <div>
+
                     <h3>Avogadro's Law</h3>
-                    <p class="gas-law-formula">V₁ / n₁ = V₂ / n₂</p>
+
+                    <p class="gas-law-formula">
+                        V₁ / n₁ = V₂ / n₂
+                    </p>
+
                 </div>
 
-                <span class="gas-law-badge">Direct Relationship</span>
+                <span class="gas-law-badge">
+                    Direct Relationship
+                </span>
 
             </div>
 
             <p class="card-description">
+
                 At constant temperature and pressure, volume changes directly
                 with the amount of gas. The calculator solves for the final volume.
+
             </p>
 
             <div class="gas-input-grid">
 
                 <div class="gas-input-box">
+
                     <div class="gas-input-top">
-                        <label for="avoV1">Initial Volume (V₁)</label>
-                        <span class="range-value" id="avoV1Value">10 L</span>
+
+                        <label for="avoV1">
+                            Initial Volume (V₁)
+                        </label>
+
+                        <span class="range-value"
+                              id="avoV1Value">
+                            10 L
+                        </span>
+
                     </div>
-                    <input id="avoV1" type="range" min="1" max="100" step="1" value="10"
+
+                    <input id="avoV1"
+                           type="range"
+                           min="1"
+                           max="100"
+                           step="1"
+                           value="10"
                            oninput="updateAvogadro()">
+
                 </div>
 
                 <div class="gas-input-box">
+
                     <div class="gas-input-top">
-                        <label for="avoN1">Initial Moles (n₁)</label>
-                        <span class="range-value" id="avoN1Value">2 mol</span>
+
+                        <label for="avoN1">
+                            Initial Moles (n₁)
+                        </label>
+
+                        <span class="range-value"
+                              id="avoN1Value">
+                            2 mol
+                        </span>
+
                     </div>
-                    <input id="avoN1" type="range" min="0.5" max="10" step="0.5" value="2"
+
+                    <input id="avoN1"
+                           type="range"
+                           min="0.5"
+                           max="10"
+                           step="0.5"
+                           value="2"
                            oninput="updateAvogadro()">
+
                 </div>
 
                 <div class="gas-input-box">
+
                     <div class="gas-input-top">
-                        <label for="avoN2">Final Moles (n₂)</label>
-                        <span class="range-value" id="avoN2Value">5 mol</span>
+
+                        <label for="avoN2">
+                            Final Moles (n₂)
+                        </label>
+
+                        <span class="range-value"
+                              id="avoN2Value">
+                            5 mol
+                        </span>
+
                     </div>
-                    <input id="avoN2" type="range" min="0.5" max="10" step="0.5" value="5"
+
+                    <input id="avoN2"
+                           type="range"
+                           min="0.5"
+                           max="10"
+                           step="0.5"
+                           value="5"
                            oninput="updateAvogadro()">
+
                 </div>
 
             </div>
@@ -1300,21 +1444,39 @@ footer {
             <div class="gas-result-layout">
 
                 <div class="gas-result-box">
+
                     <h4>Conversion Result</h4>
-                    <div class="gas-conversion" id="avoResult">V₂ = 25.00 L</div>
-                    <div class="gas-equation" id="avoEquation">
+
+                    <div class="gas-conversion"
+                         id="avoResult">
+                        V₂ = 25.00 L
+                    </div>
+
+                    <div class="gas-equation"
+                         id="avoEquation">
+
                         V₂ = V₁ × (n₂ / n₁)<br>
                         V₂ = 10 × (5 / 2)<br>
                         V₂ = 25.00 L
+
                     </div>
+
                     <p class="gas-note">
                         Graph: Volume (V) is plotted against Amount of Gas (n).
                     </p>
+
                 </div>
 
                 <div class="graph-box">
-                    <div class="graph-title">Avogadro's Law Graph</div>
-                    <canvas id="avoGraph" width="720" height="300"></canvas>
+
+                    <div class="graph-title">
+                        Avogadro's Law Graph
+                    </div>
+
+                    <canvas id="avoGraph"
+                            width="720"
+                            height="300"></canvas>
+
                 </div>
 
             </div>
@@ -1330,46 +1492,103 @@ footer {
             <div class="gas-law-heading">
 
                 <div>
+
                     <h3>Boyle's Law</h3>
-                    <p class="gas-law-formula">P₁V₁ = P₂V₂</p>
+
+                    <p class="gas-law-formula">
+                        P₁V₁ = P₂V₂
+                    </p>
+
                 </div>
 
-                <span class="gas-law-badge">Inverse Relationship</span>
+                <span class="gas-law-badge">
+                    Inverse Relationship
+                </span>
 
             </div>
 
             <p class="card-description">
+
                 At constant temperature, pressure and volume have an inverse
                 relationship. The calculator solves for the final volume.
+
             </p>
 
             <div class="gas-input-grid">
 
                 <div class="gas-input-box">
+
                     <div class="gas-input-top">
-                        <label for="boyleP1">Initial Pressure (P₁)</label>
-                        <span class="range-value" id="boyleP1Value">1 atm</span>
+
+                        <label for="boyleP1">
+                            Initial Pressure (P₁)
+                        </label>
+
+                        <span class="range-value"
+                              id="boyleP1Value">
+                            1 atm
+                        </span>
+
                     </div>
-                    <input id="boyleP1" type="range" min="0.5" max="10" step="0.1" value="1"
+
+                    <input id="boyleP1"
+                           type="range"
+                           min="0.5"
+                           max="10"
+                           step="0.1"
+                           value="1"
                            oninput="updateBoyle()">
+
                 </div>
 
                 <div class="gas-input-box">
+
                     <div class="gas-input-top">
-                        <label for="boyleV1">Initial Volume (V₁)</label>
-                        <span class="range-value" id="boyleV1Value">10 L</span>
+
+                        <label for="boyleV1">
+                            Initial Volume (V₁)
+                        </label>
+
+                        <span class="range-value"
+                              id="boyleV1Value">
+                            10 L
+                        </span>
+
                     </div>
-                    <input id="boyleV1" type="range" min="1" max="100" step="1" value="10"
+
+                    <input id="boyleV1"
+                           type="range"
+                           min="1"
+                           max="100"
+                           step="1"
+                           value="10"
                            oninput="updateBoyle()">
+
                 </div>
 
                 <div class="gas-input-box">
+
                     <div class="gas-input-top">
-                        <label for="boyleP2">Final Pressure (P₂)</label>
-                        <span class="range-value" id="boyleP2Value">2 atm</span>
+
+                        <label for="boyleP2">
+                            Final Pressure (P₂)
+                        </label>
+
+                        <span class="range-value"
+                              id="boyleP2Value">
+                            2 atm
+                        </span>
+
                     </div>
-                    <input id="boyleP2" type="range" min="0.5" max="10" step="0.1" value="2"
+
+                    <input id="boyleP2"
+                           type="range"
+                           min="0.5"
+                           max="10"
+                           step="0.1"
+                           value="2"
                            oninput="updateBoyle()">
+
                 </div>
 
             </div>
@@ -1377,21 +1596,39 @@ footer {
             <div class="gas-result-layout">
 
                 <div class="gas-result-box">
+
                     <h4>Conversion Result</h4>
-                    <div class="gas-conversion" id="boyleResult">V₂ = 5.00 L</div>
-                    <div class="gas-equation" id="boyleEquation">
+
+                    <div class="gas-conversion"
+                         id="boyleResult">
+                        V₂ = 5.00 L
+                    </div>
+
+                    <div class="gas-equation"
+                         id="boyleEquation">
+
                         V₂ = (P₁ × V₁) / P₂<br>
                         V₂ = (1 × 10) / 2<br>
                         V₂ = 5.00 L
+
                     </div>
+
                     <p class="gas-note">
                         Graph: Pressure (P) is plotted against Volume (V), showing an inverse curve.
                     </p>
+
                 </div>
 
                 <div class="graph-box">
-                    <div class="graph-title">Boyle's Law Graph</div>
-                    <canvas id="boyleGraph" width="720" height="300"></canvas>
+
+                    <div class="graph-title">
+                        Boyle's Law Graph
+                    </div>
+
+                    <canvas id="boyleGraph"
+                            width="720"
+                            height="300"></canvas>
+
                 </div>
 
             </div>
@@ -1407,46 +1644,103 @@ footer {
             <div class="gas-law-heading">
 
                 <div>
+
                     <h3>Charles' Law</h3>
-                    <p class="gas-law-formula">V₁ / T₁ = V₂ / T₂</p>
+
+                    <p class="gas-law-formula">
+                        V₁ / T₁ = V₂ / T₂
+                    </p>
+
                 </div>
 
-                <span class="gas-law-badge">Direct Relationship</span>
+                <span class="gas-law-badge">
+                    Direct Relationship
+                </span>
 
             </div>
 
             <p class="card-description">
+
                 At constant pressure, volume changes directly with absolute
                 temperature measured in Kelvin. The calculator solves for final volume.
+
             </p>
 
             <div class="gas-input-grid">
 
                 <div class="gas-input-box">
+
                     <div class="gas-input-top">
-                        <label for="charlesV1">Initial Volume (V₁)</label>
-                        <span class="range-value" id="charlesV1Value">10 L</span>
+
+                        <label for="charlesV1">
+                            Initial Volume (V₁)
+                        </label>
+
+                        <span class="range-value"
+                              id="charlesV1Value">
+                            10 L
+                        </span>
+
                     </div>
-                    <input id="charlesV1" type="range" min="1" max="100" step="1" value="10"
+
+                    <input id="charlesV1"
+                           type="range"
+                           min="1"
+                           max="100"
+                           step="1"
+                           value="10"
                            oninput="updateCharles()">
+
                 </div>
 
                 <div class="gas-input-box">
+
                     <div class="gas-input-top">
-                        <label for="charlesT1">Initial Temperature (T₁)</label>
-                        <span class="range-value" id="charlesT1Value">300 K</span>
+
+                        <label for="charlesT1">
+                            Initial Temperature (T₁)
+                        </label>
+
+                        <span class="range-value"
+                              id="charlesT1Value">
+                            300 K
+                        </span>
+
                     </div>
-                    <input id="charlesT1" type="range" min="200" max="500" step="1" value="300"
+
+                    <input id="charlesT1"
+                           type="range"
+                           min="200"
+                           max="500"
+                           step="1"
+                           value="300"
                            oninput="updateCharles()">
+
                 </div>
 
                 <div class="gas-input-box">
+
                     <div class="gas-input-top">
-                        <label for="charlesT2">Final Temperature (T₂)</label>
-                        <span class="range-value" id="charlesT2Value">450 K</span>
+
+                        <label for="charlesT2">
+                            Final Temperature (T₂)
+                        </label>
+
+                        <span class="range-value"
+                              id="charlesT2Value">
+                            450 K
+                        </span>
+
                     </div>
-                    <input id="charlesT2" type="range" min="200" max="500" step="1" value="450"
+
+                    <input id="charlesT2"
+                           type="range"
+                           min="200"
+                           max="500"
+                           step="1"
+                           value="450"
                            oninput="updateCharles()">
+
                 </div>
 
             </div>
@@ -1454,21 +1748,39 @@ footer {
             <div class="gas-result-layout">
 
                 <div class="gas-result-box">
+
                     <h4>Conversion Result</h4>
-                    <div class="gas-conversion" id="charlesResult">V₂ = 15.00 L</div>
-                    <div class="gas-equation" id="charlesEquation">
+
+                    <div class="gas-conversion"
+                         id="charlesResult">
+                        V₂ = 15.00 L
+                    </div>
+
+                    <div class="gas-equation"
+                         id="charlesEquation">
+
                         V₂ = V₁ × (T₂ / T₁)<br>
                         V₂ = 10 × (450 / 300)<br>
                         V₂ = 15.00 L
+
                     </div>
+
                     <p class="gas-note">
                         Graph: Volume (V) is plotted against Temperature (T) in Kelvin.
                     </p>
+
                 </div>
 
                 <div class="graph-box">
-                    <div class="graph-title">Charles' Law Graph</div>
-                    <canvas id="charlesGraph" width="720" height="300"></canvas>
+
+                    <div class="graph-title">
+                        Charles' Law Graph
+                    </div>
+
+                    <canvas id="charlesGraph"
+                            width="720"
+                            height="300"></canvas>
+
                 </div>
 
             </div>
@@ -1484,55 +1796,132 @@ footer {
             <div class="gas-law-heading">
 
                 <div>
+
                     <h3>Dalton's Law (ABCD)</h3>
-                    <p class="gas-law-formula">P<sub>T</sub> = P<sub>A</sub> + P<sub>B</sub> + P<sub>C</sub> + P<sub>D</sub></p>
+
+                    <p class="gas-law-formula">
+                        P<sub>T</sub> =
+                        P<sub>A</sub> +
+                        P<sub>B</sub> +
+                        P<sub>C</sub> +
+                        P<sub>D</sub>
+                    </p>
+
                 </div>
 
-                <span class="gas-law-badge">Partial Pressures</span>
+                <span class="gas-law-badge">
+                    Partial Pressures
+                </span>
 
             </div>
 
             <p class="card-description">
+
                 Enter the partial pressures of gases A, B, C, and D.
                 Their sum gives the total pressure of the gas mixture.
+
             </p>
 
             <div class="gas-input-grid">
 
                 <div class="gas-input-box">
+
                     <div class="gas-input-top">
-                        <label for="daltonA">Gas A Partial Pressure</label>
-                        <span class="range-value" id="daltonAValue">1 atm</span>
+
+                        <label for="daltonA">
+                            Gas A Partial Pressure
+                        </label>
+
+                        <span class="range-value"
+                              id="daltonAValue">
+                            1 atm
+                        </span>
+
                     </div>
-                    <input id="daltonA" type="range" min="0" max="5" step="0.1" value="1"
+
+                    <input id="daltonA"
+                           type="range"
+                           min="0"
+                           max="5"
+                           step="0.1"
+                           value="1"
                            oninput="updateDalton()">
+
                 </div>
 
                 <div class="gas-input-box">
+
                     <div class="gas-input-top">
-                        <label for="daltonB">Gas B Partial Pressure</label>
-                        <span class="range-value" id="daltonBValue">1.5 atm</span>
+
+                        <label for="daltonB">
+                            Gas B Partial Pressure
+                        </label>
+
+                        <span class="range-value"
+                              id="daltonBValue">
+                            1.5 atm
+                        </span>
+
                     </div>
-                    <input id="daltonB" type="range" min="0" max="5" step="0.1" value="1.5"
+
+                    <input id="daltonB"
+                           type="range"
+                           min="0"
+                           max="5"
+                           step="0.1"
+                           value="1.5"
                            oninput="updateDalton()">
+
                 </div>
 
                 <div class="gas-input-box">
+
                     <div class="gas-input-top">
-                        <label for="daltonC">Gas C Partial Pressure</label>
-                        <span class="range-value" id="daltonCValue">0.5 atm</span>
+
+                        <label for="daltonC">
+                            Gas C Partial Pressure
+                        </label>
+
+                        <span class="range-value"
+                              id="daltonCValue">
+                            0.5 atm
+                        </span>
+
                     </div>
-                    <input id="daltonC" type="range" min="0" max="5" step="0.1" value="0.5"
+
+                    <input id="daltonC"
+                           type="range"
+                           min="0"
+                           max="5"
+                           step="0.1"
+                           value="0.5"
                            oninput="updateDalton()">
+
                 </div>
 
                 <div class="gas-input-box">
+
                     <div class="gas-input-top">
-                        <label for="daltonD">Gas D Partial Pressure</label>
-                        <span class="range-value" id="daltonDValue">1 atm</span>
+
+                        <label for="daltonD">
+                            Gas D Partial Pressure
+                        </label>
+
+                        <span class="range-value"
+                              id="daltonDValue">
+                            1 atm
+                        </span>
+
                     </div>
-                    <input id="daltonD" type="range" min="0" max="5" step="0.1" value="1"
+
+                    <input id="daltonD"
+                           type="range"
+                           min="0"
+                           max="5"
+                           step="0.1"
+                           value="1"
                            oninput="updateDalton()">
+
                 </div>
 
             </div>
@@ -1540,21 +1929,40 @@ footer {
             <div class="gas-result-layout">
 
                 <div class="gas-result-box">
+
                     <h4>Conversion Result</h4>
-                    <div class="gas-conversion" id="daltonResult">Pₜ = 4.00 atm</div>
-                    <div class="gas-equation" id="daltonEquation">
+
+                    <div class="gas-conversion"
+                         id="daltonResult">
+                        Pₜ = 4.00 atm
+                    </div>
+
+                    <div class="gas-equation"
+                         id="daltonEquation">
+
                         Pₜ = Pₐ + Pᵦ + P𝑐 + P𝒹<br>
                         Pₜ = 1 + 1.5 + 0.5 + 1<br>
                         Pₜ = 4.00 atm
+
                     </div>
+
                     <p class="gas-note">
-                        Graph: each bar represents a gas's partial pressure; the total is the sum of A–D.
+                        Graph: each bar represents a gas's partial pressure;
+                        the total is the sum of A–D.
                     </p>
+
                 </div>
 
                 <div class="graph-box">
-                    <div class="graph-title">Dalton's Law ABCD Graph</div>
-                    <canvas id="daltonGraph" width="720" height="300"></canvas>
+
+                    <div class="graph-title">
+                        Dalton's Law ABCD Graph
+                    </div>
+
+                    <canvas id="daltonGraph"
+                            width="720"
+                            height="300"></canvas>
+
                 </div>
 
             </div>
@@ -1565,22 +1973,20 @@ footer {
 
 </section>
 
-
 <footer>
- 
+
     ChemCheck — A Mathematics and Chemistry Learning Project
- 
+
 </footer>
- 
- 
+
 <script>
- 
+
 /* =========================================================
    ELEMENT DATABASE
 ========================================================= */
- 
+
 const elements = [
- 
+
 {n:1,s:"H",name:"Hydrogen",m:1.008,en:2.20,c:"+1/-1"},
 {n:2,s:"He",name:"Helium",m:4.003,en:null,c:"0"},
 {n:3,s:"Li",name:"Lithium",m:6.94,en:0.98,c:"+1"},
@@ -1591,7 +1997,7 @@ const elements = [
 {n:8,s:"O",name:"Oxygen",m:15.999,en:3.44,c:"-2"},
 {n:9,s:"F",name:"Fluorine",m:18.998,en:3.98,c:"-1"},
 {n:10,s:"Ne",name:"Neon",m:20.180,en:null,c:"0"},
- 
+
 {n:11,s:"Na",name:"Sodium",m:22.990,en:0.93,c:"+1"},
 {n:12,s:"Mg",name:"Magnesium",m:24.305,en:1.31,c:"+2"},
 {n:13,s:"Al",name:"Aluminum",m:26.982,en:1.61,c:"+3"},
@@ -1600,7 +2006,7 @@ const elements = [
 {n:16,s:"S",name:"Sulfur",m:32.06,en:2.58,c:"-2/+4/+6"},
 {n:17,s:"Cl",name:"Chlorine",m:35.45,en:3.16,c:"-1/+1/+3/+5/+7"},
 {n:18,s:"Ar",name:"Argon",m:39.948,en:null,c:"0"},
- 
+
 {n:19,s:"K",name:"Potassium",m:39.098,en:0.82,c:"+1"},
 {n:20,s:"Ca",name:"Calcium",m:40.078,en:1.00,c:"+2"},
 {n:21,s:"Sc",name:"Scandium",m:44.956,en:1.36,c:"+3"},
@@ -1613,14 +2019,14 @@ const elements = [
 {n:28,s:"Ni",name:"Nickel",m:58.693,en:1.91,c:"+2/+3"},
 {n:29,s:"Cu",name:"Copper",m:63.546,en:1.90,c:"+1/+2"},
 {n:30,s:"Zn",name:"Zinc",m:65.38,en:1.65,c:"+2"},
- 
+
 {n:31,s:"Ga",name:"Gallium",m:69.723,en:1.81,c:"+3"},
 {n:32,s:"Ge",name:"Germanium",m:72.630,en:2.01,c:"+2/+4"},
 {n:33,s:"As",name:"Arsenic",m:74.922,en:2.18,c:"-3/+3/+5"},
 {n:34,s:"Se",name:"Selenium",m:78.971,en:2.55,c:"-2/+4/+6"},
 {n:35,s:"Br",name:"Bromine",m:79.904,en:2.96,c:"-1/+1/+3/+5/+7"},
 {n:36,s:"Kr",name:"Krypton",m:83.798,en:3.00,c:"0"},
- 
+
 {n:37,s:"Rb",name:"Rubidium",m:85.468,en:0.82,c:"+1"},
 {n:38,s:"Sr",name:"Strontium",m:87.62,en:0.95,c:"+2"},
 {n:39,s:"Y",name:"Yttrium",m:88.906,en:1.22,c:"+3"},
@@ -1633,21 +2039,21 @@ const elements = [
 {n:46,s:"Pd",name:"Palladium",m:106.42,en:2.20,c:"+2/+4"},
 {n:47,s:"Ag",name:"Silver",m:107.868,en:1.93,c:"+1"},
 {n:48,s:"Cd",name:"Cadmium",m:112.414,en:1.69,c:"+2"},
- 
+
 {n:49,s:"In",name:"Indium",m:114.818,en:1.78,c:"+3"},
 {n:50,s:"Sn",name:"Tin",m:118.710,en:1.96,c:"+2/+4"},
 {n:51,s:"Sb",name:"Antimony",m:121.760,en:2.05,c:"-3/+3/+5"},
 {n:52,s:"Te",name:"Tellurium",m:127.60,en:2.10,c:"-2/+4/+6"},
 {n:53,s:"I",name:"Iodine",m:126.904,en:2.66,c:"-1/+1/+3/+5/+7"},
 {n:54,s:"Xe",name:"Xenon",m:131.293,en:2.60,c:"0/+2/+4/+6"},
- 
+
 {n:55,s:"Cs",name:"Cesium",m:132.905,en:0.79,c:"+1"},
 {n:56,s:"Ba",name:"Barium",m:137.327,en:0.89,c:"+2"},
 {n:57,s:"La",name:"Lanthanum",m:138.905,en:1.10,c:"+3"},
 {n:58,s:"Ce",name:"Cerium",m:140.116,en:1.12,c:"+3/+4"},
 {n:59,s:"Pr",name:"Praseodymium",m:140.908,en:1.13,c:"+3"},
 {n:60,s:"Nd",name:"Neodymium",m:144.242,en:1.14,c:"+3"},
- 
+
 {n:61,s:"Pm",name:"Promethium",m:145,en:1.13,c:"+3"},
 {n:62,s:"Sm",name:"Samarium",m:150.36,en:1.17,c:"+2/+3"},
 {n:63,s:"Eu",name:"Europium",m:151.964,en:1.20,c:"+2/+3"},
@@ -1659,7 +2065,7 @@ const elements = [
 {n:69,s:"Tm",name:"Thulium",m:168.934,en:1.25,c:"+3"},
 {n:70,s:"Yb",name:"Ytterbium",m:173.045,en:1.10,c:"+2/+3"},
 {n:71,s:"Lu",name:"Lutetium",m:174.967,en:1.27,c:"+3"},
- 
+
 {n:72,s:"Hf",name:"Hafnium",m:178.49,en:1.30,c:"+4"},
 {n:73,s:"Ta",name:"Tantalum",m:180.948,en:1.50,c:"+5"},
 {n:74,s:"W",name:"Tungsten",m:183.84,en:2.36,c:"+2/+3/+4/+5/+6"},
@@ -1669,21 +2075,21 @@ const elements = [
 {n:78,s:"Pt",name:"Platinum",m:195.084,en:2.28,c:"+2/+4"},
 {n:79,s:"Au",name:"Gold",m:196.967,en:2.54,c:"+1/+3"},
 {n:80,s:"Hg",name:"Mercury",m:200.592,en:2.00,c:"+1/+2"},
- 
+
 {n:81,s:"Tl",name:"Thallium",m:204.38,en:1.62,c:"+1/+3"},
 {n:82,s:"Pb",name:"Lead",m:207.2,en:2.33,c:"+2/+4"},
 {n:83,s:"Bi",name:"Bismuth",m:208.980,en:2.02,c:"+3/+5"},
 {n:84,s:"Po",name:"Polonium",m:209,en:2.00,c:"+2/+4/+6"},
 {n:85,s:"At",name:"Astatine",m:210,en:2.20,c:"-1/+1/+3/+5/+7"},
 {n:86,s:"Rn",name:"Radon",m:222,en:null,c:"0"},
- 
+
 {n:87,s:"Fr",name:"Francium",m:223,en:0.70,c:"+1"},
 {n:88,s:"Ra",name:"Radium",m:226,en:0.90,c:"+2"},
 {n:89,s:"Ac",name:"Actinium",m:227,en:1.10,c:"+3"},
 {n:90,s:"Th",name:"Thorium",m:232.038,en:1.30,c:"+4"},
 {n:91,s:"Pa",name:"Protactinium",m:231.036,en:1.50,c:"+4/+5"},
 {n:92,s:"U",name:"Uranium",m:238.029,en:1.38,c:"+3/+4/+5/+6"},
- 
+
 {n:93,s:"Np",name:"Neptunium",m:237,en:1.36,c:"+3/+4/+5/+6/+7"},
 {n:94,s:"Pu",name:"Plutonium",m:244,en:1.28,c:"+3/+4/+5/+6"},
 {n:95,s:"Am",name:"Americium",m:243,en:1.30,c:"+3/+4/+5/+6"},
@@ -1695,7 +2101,7 @@ const elements = [
 {n:101,s:"Md",name:"Mendelevium",m:258,en:1.30,c:"+2/+3"},
 {n:102,s:"No",name:"Nobelium",m:259,en:1.30,c:"+2/+3"},
 {n:103,s:"Lr",name:"Lawrencium",m:266,en:1.30,c:"+3"},
- 
+
 {n:104,s:"Rf",name:"Rutherfordium",m:267,en:null,c:"+4"},
 {n:105,s:"Db",name:"Dubnium",m:268,en:null,c:"+5"},
 {n:106,s:"Sg",name:"Seaborgium",m:269,en:null,c:"+6"},
@@ -1711,247 +2117,245 @@ const elements = [
 {n:116,s:"Lv",name:"Livermorium",m:293,en:null,c:"+2/+4"},
 {n:117,s:"Ts",name:"Tennessine",m:294,en:null,c:"-1/+1/+3/+5"},
 {n:118,s:"Og",name:"Oganesson",m:294,en:null,c:"0"}
- 
+
 ];
- 
- 
+
 /* =========================================================
    NAVIGATION
 ========================================================= */
- 
+
 function showSection(sectionId, button) {
- 
+
     document.querySelectorAll(".section").forEach(section => {
         section.classList.remove("active");
     });
- 
+
     document.getElementById(sectionId).classList.add("active");
- 
+
     document.querySelectorAll(".nav-btn").forEach(btn => {
         btn.classList.remove("active");
     });
- 
+
     if (button) {
         button.classList.add("active");
     }
- 
+
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+
 }
- 
- 
+
 /* =========================================================
    PERIODIC TABLE
 ========================================================= */
- 
+
 function createPeriodicTable() {
- 
+
     const table = document.getElementById("periodicTable");
- 
+
     let html = "";
- 
+
     const positions = [];
- 
+
     elements.forEach(el => {
- 
+
         let row;
         let col;
- 
+
         if (el.n === 1) {
             row = 1;
             col = 1;
         }
- 
+
         else if (el.n === 2) {
             row = 1;
             col = 18;
         }
- 
+
         else if (el.n >= 3 && el.n <= 10) {
- 
+
             row = 2;
- 
+
             if (el.n <= 4)
                 col = el.n - 2;
             else
                 col = el.n + 8;
- 
+
         }
- 
+
         else if (el.n >= 11 && el.n <= 18) {
- 
+
             row = 3;
- 
+
             if (el.n <= 12)
                 col = el.n - 10;
             else
                 col = el.n;
- 
+
         }
- 
+
         else if (el.n >= 19 && el.n <= 36) {
- 
+
             row = 4;
             col = el.n - 18;
- 
+
         }
- 
+
         else if (el.n >= 37 && el.n <= 54) {
- 
+
             row = 5;
             col = el.n - 36;
- 
+
         }
- 
+
         else if (el.n >= 55 && el.n <= 56) {
- 
+
             row = 6;
             col = el.n - 54;
- 
+
         }
- 
+
         else if (el.n >= 57 && el.n <= 71) {
- 
+
             row = 8;
             col = el.n - 56;
- 
+
         }
- 
+
         else if (el.n >= 72 && el.n <= 86) {
- 
+
             row = 6;
             col = el.n - 59;
- 
+
         }
- 
+
         else if (el.n >= 87 && el.n <= 88) {
- 
+
             row = 7;
             col = el.n - 86;
- 
+
         }
- 
+
         else if (el.n >= 89 && el.n <= 103) {
- 
+
             row = 9;
             col = el.n - 88;
- 
+
         }
- 
+
         else if (el.n >= 104 && el.n <= 118) {
- 
+
             row = 7;
             col = el.n - 86;
- 
+
         }
- 
+
         if (row && col) {
- 
+
             positions.push({
                 el,
                 row,
                 col
             });
- 
+
         }
- 
+
     });
- 
- 
+
     for (let row = 1; row <= 9; row++) {
- 
+
         for (let col = 1; col <= 18; col++) {
- 
+
             const item = positions.find(
                 p => p.row === row && p.col === col
             );
- 
+
             if (item) {
- 
+
                 const el = item.el;
- 
+
                 html += `
- 
+
                     <div class="element"
                          style="grid-column:${col};
                                 grid-row:${row}"
                          onclick="selectElement(${el.n})">
- 
+
                         <div class="number">
                             ${el.n}
                         </div>
- 
+
                         <div class="symbol">
                             ${el.s}
                         </div>
- 
+
                         <div class="name">
                             ${el.name}
                         </div>
- 
+
                     </div>
- 
+
                 `;
- 
+
             }
- 
+
             else {
- 
+
                 html += `
- 
+
                     <div class="empty"
                          style="grid-column:${col};
                                 grid-row:${row}">
                     </div>
- 
+
                 `;
- 
+
             }
- 
+
         }
- 
+
     }
- 
+
     table.innerHTML = html;
+
 }
- 
- 
+
 function selectElement(number) {
- 
+
     const el = elements.find(e => e.n === number);
- 
+
     if (!el) return;
- 
+
     document.getElementById("elementInfo")
         .classList.add("show");
- 
+
     document.getElementById("selectedElement")
         .textContent =
         `${el.name} (${el.s})`;
- 
+
     document.getElementById("atomicNumber")
         .textContent = el.n;
- 
+
     document.getElementById("atomicMass")
         .textContent = el.m;
- 
+
     document.getElementById("commonCharge")
         .textContent = el.c;
- 
+
     document.getElementById("elementEN")
         .textContent =
         el.en === null ? "N/A" : el.en;
+
 }
- 
- 
+
 /* =========================================================
    DROPDOWNS
 ========================================================= */
- 
+
 function setupDropdowns() {
- 
+
     const dropdowns = [
         "enA",
         "enB",
@@ -1960,19 +2364,19 @@ function setupDropdowns() {
         "covA",
         "covB"
     ];
- 
+
     dropdowns.forEach(id => {
- 
+
         const select =
             document.getElementById(id);
- 
+
         elements.forEach(el => {
- 
+
             const option =
                 document.createElement("option");
- 
+
             option.value = el.n;
- 
+
             option.textContent =
                 `${el.s} — ${el.name}` +
                 (
@@ -1980,611 +2384,585 @@ function setupDropdowns() {
                     ? ` (EN ${el.en})`
                     : " (EN N/A)"
                 );
- 
+
             select.appendChild(option);
- 
+
         });
- 
+
     });
- 
- 
+
     /* Default examples */
- 
+
     document.getElementById("enA").value = 11;
     document.getElementById("enB").value = 17;
- 
+
     document.getElementById("ionicA").value = 11;
     document.getElementById("ionicB").value = 17;
- 
+
     document.getElementById("covA").value = 1;
     document.getElementById("covB").value = 8;
+
 }
- 
- 
+
 /* =========================================================
    ATOMIC CALCULATOR
 ========================================================= */
- 
+
 function calculateAtom() {
- 
+
     let p =
         document.getElementById("protons").value;
- 
+
     let n =
         document.getElementById("neutrons").value;
- 
+
     let e =
         document.getElementById("electrons").value;
- 
- 
+
     p = p === "" ? null : Number(p);
     n = n === "" ? null : Number(n);
     e = e === "" ? null : Number(e);
- 
- 
+
     const result =
         document.getElementById("atomicResult");
- 
- 
+
     if (
         (p !== null && p < 0) ||
         (n !== null && n < 0) ||
         (e !== null && e < 0)
     ) {
- 
+
         result.innerHTML = `
- 
+
             <h3>Invalid input</h3>
- 
+
             <p class="error">
                 Particle counts cannot be negative.
             </p>
- 
+
         `;
- 
+
         result.classList.add("show");
- 
+
         return;
     }
- 
- 
+
     if (p === null) {
- 
+
         result.innerHTML = `
- 
+
             <h3>Protons cannot be determined</h3>
- 
+
             <p class="error">
                 Enter the number of protons or the atomic number.
             </p>
- 
+
         `;
- 
+
         result.classList.add("show");
- 
+
         return;
     }
- 
- 
+
     if (n === null && e === null) {
- 
+
         result.innerHTML = `
- 
+
             <h3>Enter more information</h3>
- 
+
             <p class="error">
                 Enter at least one additional particle value.
             </p>
- 
+
         `;
- 
+
         result.classList.add("show");
- 
+
         return;
     }
- 
- 
+
     if (n !== null && e !== null) {
- 
+
         const mass = p + n;
         const charge = p - e;
- 
+
         result.innerHTML = `
- 
+
             <h3>Atomic Calculation</h3>
- 
+
             <div class="result-value">
                 Mass Number: ${mass}
             </div>
- 
+
             <div class="result-value">
                 Net Charge: ${formatCharge(charge)}
             </div>
- 
+
             <div class="formula">
- 
+
                 Mass number = protons + neutrons<br>
- 
+
                 = ${p} + ${n}<br>
- 
+
                 = ${mass}
- 
+
                 <br><br>
- 
+
                 Net charge = protons − electrons<br>
- 
+
                 = ${p} − ${e}<br>
- 
+
                 = ${formatCharge(charge)}
- 
+
             </div>
- 
+
         `;
- 
+
     }
- 
- 
+
     else if (n !== null) {
- 
+
         const mass = p + n;
- 
+
         result.innerHTML = `
- 
+
             <h3>Atomic Calculation</h3>
- 
+
             <div class="result-value">
                 Mass Number: ${mass}
             </div>
- 
+
             <div class="formula">
- 
+
                 Mass number = protons + neutrons<br>
- 
+
                 = ${p} + ${n}<br>
- 
+
                 = ${mass}
- 
+
             </div>
- 
+
             <p class="card-description"
                style="margin-top:15px;">
- 
+
                 Enter electrons to calculate net charge.
- 
+
             </p>
- 
+
         `;
- 
+
     }
- 
- 
+
     else {
- 
+
         const charge = p - e;
- 
+
         result.innerHTML = `
- 
+
             <h3>Atomic Calculation</h3>
- 
+
             <div class="result-value">
- 
+
                 Net Charge:
                 ${formatCharge(charge)}
- 
+
             </div>
- 
+
             <div class="formula">
- 
+
                 Net charge = protons − electrons<br>
- 
+
                 = ${p} − ${e}<br>
- 
+
                 = ${formatCharge(charge)}
- 
+
             </div>
- 
+
             <p class="card-description"
                style="margin-top:15px;">
- 
+
                 Enter neutrons to calculate mass number.
- 
+
             </p>
- 
+
         `;
- 
+
     }
- 
- 
+
     result.classList.add("show");
+
 }
- 
- 
+
 function formatCharge(charge) {
- 
+
     if (charge === 0)
         return "0";
- 
+
     return charge > 0
         ? `+${charge}`
         : `${charge}`;
+
 }
- 
- 
+
 function clearAtomic() {
- 
+
     document.getElementById("protons").value = "";
- 
     document.getElementById("neutrons").value = "";
- 
     document.getElementById("electrons").value = "";
- 
+
     document.getElementById("atomicResult")
         .classList.remove("show");
+
 }
- 
- 
+
 /* =========================================================
    GET ELEMENT
 ========================================================= */
- 
+
 function getSelectedElement(id) {
- 
+
     const number =
         Number(document.getElementById(id).value);
- 
+
     return elements.find(e => e.n === number);
+
 }
- 
- 
+
 /* =========================================================
    ELECTRONEGATIVITY
 ========================================================= */
- 
+
 function calculateEN() {
- 
+
     const a =
         getSelectedElement("enA");
- 
+
     const b =
         getSelectedElement("enB");
- 
+
     const result =
         document.getElementById("enResult");
- 
- 
+
     if (a.en === null || b.en === null) {
- 
+
         result.innerHTML = `
- 
+
             <h3>Electronegativity unavailable</h3>
- 
+
             <p class="error">
                 One or both selected elements do not have
                 a standard electronegativity value available.
             </p>
- 
+
         `;
- 
+
         result.classList.add("show");
- 
+
         return;
     }
- 
- 
+
     const difference =
         Math.abs(a.en - b.en);
- 
- 
+
     let classification;
- 
- 
+
     if (difference <= 0.40) {
- 
+
         classification =
             "Nonpolar covalent";
- 
+
     }
- 
+
     else if (difference < 1.70) {
- 
+
         classification =
             "Polar covalent";
- 
+
     }
- 
+
     else {
- 
+
         classification =
             "Ionic";
- 
+
     }
- 
- 
+
     result.innerHTML = `
- 
+
         <h3>Electronegativity Result</h3>
- 
+
         <div class="result-value">
- 
+
             ΔEN = ${difference.toFixed(2)}
- 
+
         </div>
- 
+
         <div class="formula">
- 
+
             ΔEN = |EN₁ − EN₂|<br>
- 
+
             = |${a.en} − ${b.en}|<br>
- 
+
             = ${difference.toFixed(2)}
- 
+
         </div>
- 
+
         <div class="chem-equation">
- 
+
             Classification:
             <strong>${classification}</strong>
- 
+
         </div>
- 
+
         <p class="card-description"
            style="margin-top:15px;">
- 
+
             Common classroom guideline:
             ≤ 0.40 = nonpolar covalent,
             0.41–1.69 = polar covalent,
             ≥ 1.70 = ionic.
- 
+
         </p>
- 
+
     `;
- 
+
     result.classList.add("show");
+
 }
- 
- 
+
 /* =========================================================
    IONIC BONDS
 ========================================================= */
- 
+
 function calculateIonic() {
- 
+
     const a =
         getSelectedElement("ionicA");
- 
+
     const b =
         getSelectedElement("ionicB");
- 
+
     const result =
         document.getElementById("ionicResult");
- 
- 
+
     if (a.en === null || b.en === null) {
- 
+
         result.innerHTML = `
- 
+
             <h3>Cannot calculate</h3>
- 
+
             <p class="error">
- 
+
                 Electronegativity data is unavailable
                 for one or both elements.
- 
+
             </p>
- 
+
         `;
- 
+
         result.classList.add("show");
- 
+
         return;
     }
- 
- 
+
     const difference =
         Math.abs(a.en - b.en);
- 
- 
+
     const moreElectronegative =
         a.en > b.en ? a : b;
- 
- 
+
     const lessElectronegative =
         a.en < b.en ? a : b;
- 
- 
+
     const isIonic =
         difference >= 1.70;
- 
- 
+
     result.innerHTML = `
- 
+
         <h3>Ionic Bond Analysis</h3>
- 
+
         <div class="result-value">
- 
+
             ΔEN = ${difference.toFixed(2)}
- 
+
         </div>
- 
+
         <div class="formula">
- 
+
             ΔEN = |${a.en} − ${b.en}|<br>
- 
+
             ΔEN = ${difference.toFixed(2)}
- 
+
         </div>
- 
+
         <div class="chem-equation">
- 
+
             ${
                 isIonic
                 ? "Ionic range reached"
                 : "Below the common ionic range"
             }
- 
+
         </div>
- 
+
         <p style="margin-top:15px;color:#5d5264;">
- 
+
             More electronegative atom:
+
             <strong>
                 ${moreElectronegative.name}
                 (${moreElectronegative.s})
             </strong>
- 
+
         </p>
- 
+
         <p style="margin-top:7px;color:#5d5264;">
- 
+
             Less electronegative atom:
+
             <strong>
                 ${lessElectronegative.name}
                 (${lessElectronegative.s})
             </strong>
- 
+
         </p>
- 
+
         <p class="card-description"
            style="margin-top:15px;">
- 
+
             ${
                 isIonic
                 ? "The electronegativity difference is within the common ionic range."
                 : "The electronegativity difference is below the common ionic range."
             }
- 
+
         </p>
- 
+
     `;
- 
+
     result.classList.add("show");
+
 }
- 
- 
+
 /* =========================================================
    COVALENT BONDS
 ========================================================= */
- 
+
 function calculateCovalent() {
- 
+
     const a =
         getSelectedElement("covA");
- 
+
     const b =
         getSelectedElement("covB");
- 
+
     const result =
         document.getElementById("covResult");
- 
- 
+
     if (a.en === null || b.en === null) {
- 
+
         result.innerHTML = `
- 
+
             <h3>Cannot calculate</h3>
- 
+
             <p class="error">
- 
+
                 Electronegativity data is unavailable
                 for one or both elements.
- 
+
             </p>
- 
+
         `;
- 
+
         result.classList.add("show");
- 
+
         return;
     }
- 
- 
+
     const difference =
         Math.abs(a.en - b.en);
- 
- 
+
     let type;
     let explanation;
- 
- 
+
     if (difference <= 0.40) {
- 
+
         type =
             "Nonpolar covalent";
- 
+
         explanation =
             "The electronegativity values are close, so electrons are shared relatively evenly.";
- 
+
     }
- 
+
     else if (difference < 1.70) {
- 
+
         type =
             "Polar covalent";
- 
+
         explanation =
             "The difference causes unequal sharing of electrons between the atoms.";
- 
+
     }
- 
+
     else {
- 
+
         type =
             "Not classified as covalent";
- 
+
         explanation =
             "The electronegativity difference reaches the common ionic range.";
- 
+
     }
- 
- 
+
     result.innerHTML = `
- 
+
         <h3>Covalent Bond Result</h3>
- 
+
         <div class="result-value">
- 
+
             ${type}
- 
+
         </div>
- 
+
         <div class="formula">
- 
+
             ΔEN = |EN₁ − EN₂|<br>
- 
+
             = |${a.en} − ${b.en}|<br>
- 
+
             = ${difference.toFixed(2)}
- 
+
         </div>
- 
+
         <div class="chem-equation">
- 
+
             ΔEN = ${difference.toFixed(2)}
- 
+
         </div>
- 
+
         <p style="margin-top:15px;color:#5d5264;">
- 
+
             ${explanation}
- 
+
         </p>
- 
+
         <p class="card-description"
            style="margin-top:15px;">
- 
+
             Guideline used:
             0.00–0.40 = nonpolar covalent;
             0.41–1.69 = polar covalent;
             1.70 or higher = ionic.
- 
+
         </p>
- 
+
     `;
- 
+
     result.classList.add("show");
+
 }
- 
- 
+
 /* =========================================================
    GAS LAWS CALCULATORS
 ========================================================= */
@@ -2594,9 +2972,12 @@ function gasNumber(id) {
 }
 
 function setRangeValue(id, displayId, unit, decimals = 1) {
+
     const value = gasNumber(id);
+
     document.getElementById(displayId).textContent =
         `${value.toFixed(decimals)} ${unit}`;
+
 }
 
 function updateAvogadro() {
@@ -2604,6 +2985,7 @@ function updateAvogadro() {
     const v1 = gasNumber("avoV1");
     const n1 = gasNumber("avoN1");
     const n2 = gasNumber("avoN2");
+
     const v2 = v1 * (n2 / n1);
 
     setRangeValue("avoV1", "avoV1Value", "L", 0);
@@ -2619,6 +3001,7 @@ function updateAvogadro() {
         `V₂ = ${v2.toFixed(2)} L`;
 
     drawAvogadroGraph(v1, n1, n2);
+
 }
 
 function updateBoyle() {
@@ -2626,6 +3009,7 @@ function updateBoyle() {
     const p1 = gasNumber("boyleP1");
     const v1 = gasNumber("boyleV1");
     const p2 = gasNumber("boyleP2");
+
     const v2 = (p1 * v1) / p2;
 
     setRangeValue("boyleP1", "boyleP1Value", "atm", 1);
@@ -2641,6 +3025,7 @@ function updateBoyle() {
         `V₂ = ${v2.toFixed(2)} L`;
 
     drawBoyleGraph(p1, v1, p2, v2);
+
 }
 
 function updateCharles() {
@@ -2648,6 +3033,7 @@ function updateCharles() {
     const v1 = gasNumber("charlesV1");
     const t1 = gasNumber("charlesT1");
     const t2 = gasNumber("charlesT2");
+
     const v2 = v1 * (t2 / t1);
 
     setRangeValue("charlesV1", "charlesV1Value", "L", 0);
@@ -2663,6 +3049,7 @@ function updateCharles() {
         `V₂ = ${v2.toFixed(2)} L`;
 
     drawCharlesGraph(v1, t1, t2);
+
 }
 
 function updateDalton() {
@@ -2671,6 +3058,7 @@ function updateDalton() {
     const b = gasNumber("daltonB");
     const c = gasNumber("daltonC");
     const d = gasNumber("daltonD");
+
     const total = a + b + c + d;
 
     setRangeValue("daltonA", "daltonAValue", "atm", 1);
@@ -2687,18 +3075,30 @@ function updateDalton() {
         `Pₜ = ${total.toFixed(2)} atm`;
 
     drawDaltonGraph(a, b, c, d, total);
+
 }
 
 function prepareCanvas(canvasId) {
 
-    const canvas = document.getElementById(canvasId);
-    const context = canvas.getContext("2d");
-    const width = canvas.width;
-    const height = canvas.height;
+    const canvas =
+        document.getElementById(canvasId);
+
+    const context =
+        canvas.getContext("2d");
+
+    const width =
+        canvas.width;
+
+    const height =
+        canvas.height;
 
     context.clearRect(0, 0, width, height);
-    context.font = "12px Arial";
-    context.lineWidth = 1;
+
+    context.font =
+        "12px Arial";
+
+    context.lineWidth =
+        1;
 
     return {
         canvas,
@@ -2710,255 +3110,713 @@ function prepareCanvas(canvasId) {
         top: 20,
         bottom: height - 45
     };
+
 }
 
 function drawAxes(graph, xLabel, yLabel) {
 
-    const c = graph.context;
+    const c =
+        graph.context;
 
     c.beginPath();
-    c.moveTo(graph.left, graph.top);
-    c.lineTo(graph.left, graph.bottom);
-    c.lineTo(graph.right, graph.bottom);
+
+    c.moveTo(
+        graph.left,
+        graph.top
+    );
+
+    c.lineTo(
+        graph.left,
+        graph.bottom
+    );
+
+    c.lineTo(
+        graph.right,
+        graph.bottom
+    );
+
     c.stroke();
 
-    c.fillStyle = "#51465a";
-    c.textAlign = "center";
-    c.fillText(xLabel, (graph.left + graph.right) / 2, graph.height - 10);
+    c.fillStyle =
+        "#51465a";
+
+    c.textAlign =
+        "center";
+
+    c.fillText(
+        xLabel,
+        (graph.left + graph.right) / 2,
+        graph.height - 10
+    );
 
     c.save();
-    c.translate(14, (graph.top + graph.bottom) / 2);
-    c.rotate(-Math.PI / 2);
-    c.fillText(yLabel, 0, 0);
+
+    c.translate(
+        14,
+        (graph.top + graph.bottom) / 2
+    );
+
+    c.rotate(
+        -Math.PI / 2
+    );
+
+    c.fillText(
+        yLabel,
+        0,
+        0
+    );
+
     c.restore();
+
 }
 
-function drawGrid(graph, xMax, yMax, xLabelFormat = value => value.toFixed(0), yLabelFormat = value => value.toFixed(0)) {
+function drawGrid(
+    graph,
+    xMax,
+    yMax,
+    xLabelFormat = value => value.toFixed(0),
+    yLabelFormat = value => value.toFixed(0)
+) {
 
-    const c = graph.context;
+    const c =
+        graph.context;
 
-    c.strokeStyle = "#eee4f5";
-    c.fillStyle = "#756a7e";
-    c.textAlign = "center";
+    c.strokeStyle =
+        "#eee4f5";
+
+    c.fillStyle =
+        "#756a7e";
+
+    c.textAlign =
+        "center";
 
     for (let i = 0; i <= 5; i++) {
 
-        const x = graph.left + ((graph.right - graph.left) * i / 5);
-        const y = graph.bottom - ((graph.bottom - graph.top) * i / 5);
+        const x =
+            graph.left +
+            ((graph.right - graph.left) * i / 5);
+
+        const y =
+            graph.bottom -
+            ((graph.bottom - graph.top) * i / 5);
 
         c.beginPath();
-        c.moveTo(x, graph.top);
-        c.lineTo(x, graph.bottom);
+
+        c.moveTo(
+            x,
+            graph.top
+        );
+
+        c.lineTo(
+            x,
+            graph.bottom
+        );
+
         c.stroke();
 
         c.beginPath();
-        c.moveTo(graph.left, y);
-        c.lineTo(graph.right, y);
+
+        c.moveTo(
+            graph.left,
+            y
+        );
+
+        c.lineTo(
+            graph.right,
+            y
+        );
+
         c.stroke();
 
-        c.fillText(xLabelFormat(xMax * i / 5), x, graph.bottom + 17);
-        c.textAlign = "right";
-        c.fillText(yLabelFormat(yMax * i / 5), graph.left - 8, y + 4);
-        c.textAlign = "center";
+        c.fillText(
+            xLabelFormat(xMax * i / 5),
+            x,
+            graph.bottom + 17
+        );
+
+        c.textAlign =
+            "right";
+
+        c.fillText(
+            yLabelFormat(yMax * i / 5),
+            graph.left - 8,
+            y + 4
+        );
+
+        c.textAlign =
+            "center";
+
     }
 
-    c.strokeStyle = "#28212f";
+    c.strokeStyle =
+        "#28212f";
+
 }
 
 function mapX(value, min, max, graph) {
-    return graph.left + ((value - min) / (max - min)) * (graph.right - graph.left);
+
+    return graph.left +
+        ((value - min) / (max - min)) *
+        (graph.right - graph.left);
+
 }
 
 function mapY(value, min, max, graph) {
-    return graph.bottom - ((value - min) / (max - min)) * (graph.bottom - graph.top);
+
+    return graph.bottom -
+        ((value - min) / (max - min)) *
+        (graph.bottom - graph.top);
+
 }
 
 function drawMarker(graph, x, y) {
 
-    const c = graph.context;
+    const c =
+        graph.context;
 
     c.beginPath();
-    c.arc(x, y, 5, 0, Math.PI * 2);
-    c.fillStyle = "#704895";
+
+    c.arc(
+        x,
+        y,
+        5,
+        0,
+        Math.PI * 2
+    );
+
+    c.fillStyle =
+        "#704895";
+
     c.fill();
+
 }
 
 function drawAvogadroGraph(v1, n1, n2) {
 
-    const graph = prepareCanvas("avoGraph");
-    const c = graph.context;
-    const xMax = Math.max(10, n2 * 1.25, n1 * 1.25);
-    const yMax = Math.max(20, v1 * (xMax / n1) * 1.1);
+    const graph =
+        prepareCanvas("avoGraph");
 
-    drawGrid(graph, xMax, yMax, value => value.toFixed(1), value => value.toFixed(1));
-    drawAxes(graph, "Amount of Gas (mol)", "Volume (L)");
+    const c =
+        graph.context;
+
+    const xMax =
+        Math.max(
+            10,
+            n2 * 1.25,
+            n1 * 1.25
+        );
+
+    const yMax =
+        Math.max(
+            20,
+            v1 * (xMax / n1) * 1.1
+        );
+
+    drawGrid(
+        graph,
+        xMax,
+        yMax,
+        value => value.toFixed(1),
+        value => value.toFixed(1)
+    );
+
+    drawAxes(
+        graph,
+        "Amount of Gas (mol)",
+        "Volume (L)"
+    );
 
     c.beginPath();
 
     for (let i = 0; i <= 100; i++) {
-        const n = (xMax * i) / 100;
-        const volume = v1 * (n / n1);
-        const x = mapX(n, 0, xMax, graph);
-        const y = mapY(volume, 0, yMax, graph);
 
-        if (i === 0) c.moveTo(x, y);
-        else c.lineTo(x, y);
+        const n =
+            (xMax * i) / 100;
+
+        const volume =
+            v1 * (n / n1);
+
+        const x =
+            mapX(
+                n,
+                0,
+                xMax,
+                graph
+            );
+
+        const y =
+            mapY(
+                volume,
+                0,
+                yMax,
+                graph
+            );
+
+        if (i === 0)
+            c.moveTo(x, y);
+        else
+            c.lineTo(x, y);
+
     }
 
-    c.strokeStyle = "#704895";
-    c.lineWidth = 3;
+    c.strokeStyle =
+        "#704895";
+
+    c.lineWidth =
+        3;
+
     c.stroke();
-    c.lineWidth = 1;
 
-    const finalVolume = v1 * (n2 / n1);
-    drawMarker(graph, mapX(n1, 0, xMax, graph), mapY(v1, 0, yMax, graph));
-    drawMarker(graph, mapX(n2, 0, xMax, graph), mapY(finalVolume, 0, yMax, graph));
+    c.lineWidth =
+        1;
 
-    c.fillStyle = "#503c5e";
-    c.textAlign = "left";
-    c.fillText("Initial", mapX(n1, 0, xMax, graph) + 8, mapY(v1, 0, yMax, graph) - 8);
-    c.fillText("Final", mapX(n2, 0, xMax, graph) + 8, mapY(finalVolume, 0, yMax, graph) - 8);
+    const finalVolume =
+        v1 * (n2 / n1);
+
+    drawMarker(
+        graph,
+        mapX(n1, 0, xMax, graph),
+        mapY(v1, 0, yMax, graph)
+    );
+
+    drawMarker(
+        graph,
+        mapX(n2, 0, xMax, graph),
+        mapY(finalVolume, 0, yMax, graph)
+    );
+
+    c.fillStyle =
+        "#503c5e";
+
+    c.textAlign =
+        "left";
+
+    c.fillText(
+        "Initial",
+        mapX(n1, 0, xMax, graph) + 8,
+        mapY(v1, 0, yMax, graph) - 8
+    );
+
+    c.fillText(
+        "Final",
+        mapX(n2, 0, xMax, graph) + 8,
+        mapY(finalVolume, 0, yMax, graph) - 8
+    );
+
 }
 
 function drawBoyleGraph(p1, v1, p2, v2) {
 
-    const graph = prepareCanvas("boyleGraph");
-    const c = graph.context;
-    const xMax = Math.max(20, v1 * 1.35, v2 * 1.35);
-    const constant = p1 * v1;
-    const yMax = Math.max(2, Math.min(12, (constant / 1) * 1.15));
+    const graph =
+        prepareCanvas("boyleGraph");
 
-    drawGrid(graph, xMax, yMax, value => value.toFixed(1), value => value.toFixed(1));
-    drawAxes(graph, "Volume (L)", "Pressure (atm)");
+    const c =
+        graph.context;
+
+    const xMax =
+        Math.max(
+            20,
+            v1 * 1.35,
+            v2 * 1.35
+        );
+
+    const constant =
+        p1 * v1;
+
+    const yMax =
+        Math.max(
+            2,
+            Math.min(
+                12,
+                (constant / 1) * 1.15
+            )
+        );
+
+    drawGrid(
+        graph,
+        xMax,
+        yMax,
+        value => value.toFixed(1),
+        value => value.toFixed(1)
+    );
+
+    drawAxes(
+        graph,
+        "Volume (L)",
+        "Pressure (atm)"
+    );
 
     c.beginPath();
 
     for (let i = 1; i <= 120; i++) {
-        const volume = Math.max(0.5, (xMax * i) / 120);
-        const pressure = constant / volume;
-        const x = mapX(volume, 0, xMax, graph);
-        const y = mapY(Math.min(pressure, yMax), 0, yMax, graph);
 
-        if (i === 1) c.moveTo(x, y);
-        else c.lineTo(x, y);
+        const volume =
+            Math.max(
+                0.5,
+                (xMax * i) / 120
+            );
+
+        const pressure =
+            constant / volume;
+
+        const x =
+            mapX(
+                volume,
+                0,
+                xMax,
+                graph
+            );
+
+        const y =
+            mapY(
+                Math.min(pressure, yMax),
+                0,
+                yMax,
+                graph
+            );
+
+        if (i === 1)
+            c.moveTo(x, y);
+        else
+            c.lineTo(x, y);
+
     }
 
-    c.strokeStyle = "#704895";
-    c.lineWidth = 3;
+    c.strokeStyle =
+        "#704895";
+
+    c.lineWidth =
+        3;
+
     c.stroke();
-    c.lineWidth = 1;
 
-    drawMarker(graph, mapX(v1, 0, xMax, graph), mapY(p1, 0, yMax, graph));
-    drawMarker(graph, mapX(v2, 0, xMax, graph), mapY(p2, 0, yMax, graph));
+    c.lineWidth =
+        1;
 
-    c.fillStyle = "#503c5e";
-    c.textAlign = "left";
-    c.fillText("Initial", mapX(v1, 0, xMax, graph) + 8, mapY(p1, 0, yMax, graph) - 8);
-    c.fillText("Final", mapX(v2, 0, xMax, graph) + 8, mapY(p2, 0, yMax, graph) - 8);
+    drawMarker(
+        graph,
+        mapX(v1, 0, xMax, graph),
+        mapY(p1, 0, yMax, graph)
+    );
+
+    drawMarker(
+        graph,
+        mapX(v2, 0, xMax, graph),
+        mapY(p2, 0, yMax, graph)
+    );
+
+    c.fillStyle =
+        "#503c5e";
+
+    c.textAlign =
+        "left";
+
+    c.fillText(
+        "Initial",
+        mapX(v1, 0, xMax, graph) + 8,
+        mapY(p1, 0, yMax, graph) - 8
+    );
+
+    c.fillText(
+        "Final",
+        mapX(v2, 0, xMax, graph) + 8,
+        mapY(p2, 0, yMax, graph) - 8
+    );
+
 }
 
 function drawCharlesGraph(v1, t1, t2) {
 
-    const graph = prepareCanvas("charlesGraph");
-    const c = graph.context;
-    const xMax = Math.max(500, t2 * 1.15, t1 * 1.15);
-    const yMax = Math.max(20, v1 * (xMax / t1) * 1.1);
+    const graph =
+        prepareCanvas("charlesGraph");
 
-    drawGrid(graph, xMax, yMax, value => value.toFixed(0), value => value.toFixed(0));
-    drawAxes(graph, "Temperature (K)", "Volume (L)");
+    const c =
+        graph.context;
+
+    const xMax =
+        Math.max(
+            500,
+            t2 * 1.15,
+            t1 * 1.15
+        );
+
+    const yMax =
+        Math.max(
+            20,
+            v1 * (xMax / t1) * 1.1
+        );
+
+    drawGrid(
+        graph,
+        xMax,
+        yMax,
+        value => value.toFixed(0),
+        value => value.toFixed(0)
+    );
+
+    drawAxes(
+        graph,
+        "Temperature (K)",
+        "Volume (L)"
+    );
 
     c.beginPath();
 
     for (let i = 0; i <= 100; i++) {
-        const temperature = (xMax * i) / 100;
-        const volume = v1 * (temperature / t1);
-        const x = mapX(temperature, 0, xMax, graph);
-        const y = mapY(volume, 0, yMax, graph);
 
-        if (i === 0) c.moveTo(x, y);
-        else c.lineTo(x, y);
+        const temperature =
+            (xMax * i) / 100;
+
+        const volume =
+            v1 * (temperature / t1);
+
+        const x =
+            mapX(
+                temperature,
+                0,
+                xMax,
+                graph
+            );
+
+        const y =
+            mapY(
+                volume,
+                0,
+                yMax,
+                graph
+            );
+
+        if (i === 0)
+            c.moveTo(x, y);
+        else
+            c.lineTo(x, y);
+
     }
 
-    c.strokeStyle = "#704895";
-    c.lineWidth = 3;
+    c.strokeStyle =
+        "#704895";
+
+    c.lineWidth =
+        3;
+
     c.stroke();
-    c.lineWidth = 1;
 
-    const v2 = v1 * (t2 / t1);
-    drawMarker(graph, mapX(t1, 0, xMax, graph), mapY(v1, 0, yMax, graph));
-    drawMarker(graph, mapX(t2, 0, xMax, graph), mapY(v2, 0, yMax, graph));
+    c.lineWidth =
+        1;
 
-    c.fillStyle = "#503c5e";
-    c.textAlign = "left";
-    c.fillText("Initial", mapX(t1, 0, xMax, graph) + 8, mapY(v1, 0, yMax, graph) - 8);
-    c.fillText("Final", mapX(t2, 0, xMax, graph) + 8, mapY(v2, 0, yMax, graph) - 8);
+    const v2 =
+        v1 * (t2 / t1);
+
+    drawMarker(
+        graph,
+        mapX(t1, 0, xMax, graph),
+        mapY(v1, 0, yMax, graph)
+    );
+
+    drawMarker(
+        graph,
+        mapX(t2, 0, xMax, graph),
+        mapY(v2, 0, yMax, graph)
+    );
+
+    c.fillStyle =
+        "#503c5e";
+
+    c.textAlign =
+        "left";
+
+    c.fillText(
+        "Initial",
+        mapX(t1, 0, xMax, graph) + 8,
+        mapY(v1, 0, yMax, graph) - 8
+    );
+
+    c.fillText(
+        "Final",
+        mapX(t2, 0, xMax, graph) + 8,
+        mapY(v2, 0, yMax, graph) - 8
+    );
+
 }
 
-function drawDaltonGraph(a, b, cValue, d, total) {
+function drawDaltonGraph(
+    a,
+    b,
+    cValue,
+    d,
+    total
+) {
 
-    const graph = prepareCanvas("daltonGraph");
-    const c = graph.context;
-    const values = [a, b, cValue, d];
-    const labels = ["A", "B", "C", "D"];
-    const yMax = Math.max(5, Math.ceil(total * 1.15));
+    const graph =
+        prepareCanvas("daltonGraph");
 
-    drawGrid(graph, 4, yMax, value => labels[Math.min(3, Math.round(value) - 1)] || "", value => value.toFixed(1));
-    drawAxes(graph, "Gas", "Partial Pressure (atm)");
+    const c =
+        graph.context;
 
-    const barWidth = (graph.right - graph.left) / 7;
+    const values =
+        [a, b, cValue, d];
 
-    values.forEach((value, index) => {
+    const labels =
+        ["A", "B", "C", "D"];
 
-        const centerX = graph.left + ((index + 1) * (graph.right - graph.left) / 5);
-        const x = centerX - (barWidth / 2);
-        const y = mapY(value, 0, yMax, graph);
-        const height = graph.bottom - y;
+    const yMax =
+        Math.max(
+            5,
+            Math.ceil(total * 1.15)
+        );
 
-        c.fillStyle = "#704895";
-        c.fillRect(x, y, barWidth, height);
+    drawGrid(
+        graph,
+        4,
+        yMax,
+        value =>
+            labels[
+                Math.min(
+                    3,
+                    Math.round(value) - 1
+                )
+            ] || "",
+        value =>
+            value.toFixed(1)
+    );
 
-        c.fillStyle = "#503c5e";
-        c.textAlign = "center";
-        c.fillText(labels[index], centerX, graph.bottom + 17);
-        c.fillText(value.toFixed(1) + " atm", centerX, y - 8);
-    });
+    drawAxes(
+        graph,
+        "Gas",
+        "Partial Pressure (atm)"
+    );
 
-    const totalY = mapY(total, 0, yMax, graph);
+    const barWidth =
+        (graph.right - graph.left) / 7;
+
+    values.forEach(
+        (value, index) => {
+
+            const centerX =
+                graph.left +
+                ((index + 1) *
+                (graph.right - graph.left) / 5);
+
+            const x =
+                centerX -
+                (barWidth / 2);
+
+            const y =
+                mapY(
+                    value,
+                    0,
+                    yMax,
+                    graph
+                );
+
+            const height =
+                graph.bottom - y;
+
+            c.fillStyle =
+                "#704895";
+
+            c.fillRect(
+                x,
+                y,
+                barWidth,
+                height
+            );
+
+            c.fillStyle =
+                "#503c5e";
+
+            c.textAlign =
+                "center";
+
+            c.fillText(
+                labels[index],
+                centerX,
+                graph.bottom + 17
+            );
+
+            c.fillText(
+                value.toFixed(1) + " atm",
+                centerX,
+                y - 8
+            );
+
+        }
+    );
+
+    const totalY =
+        mapY(
+            total,
+            0,
+            yMax,
+            graph
+        );
 
     c.beginPath();
-    c.setLineDash([7, 5]);
-    c.moveTo(graph.left, totalY);
-    c.lineTo(graph.right, totalY);
-    c.strokeStyle = "#503c5e";
-    c.lineWidth = 2;
-    c.stroke();
-    c.setLineDash([]);
-    c.lineWidth = 1;
 
-    c.fillStyle = "#503c5e";
-    c.textAlign = "right";
-    c.fillText("Total = " + total.toFixed(2) + " atm", graph.right, totalY - 8);
+    c.setLineDash(
+        [7, 5]
+    );
+
+    c.moveTo(
+        graph.left,
+        totalY
+    );
+
+    c.lineTo(
+        graph.right,
+        totalY
+    );
+
+    c.strokeStyle =
+        "#503c5e";
+
+    c.lineWidth =
+        2;
+
+    c.stroke();
+
+    c.setLineDash([]);
+
+    c.lineWidth =
+        1;
+
+    c.fillStyle =
+        "#503c5e";
+
+    c.textAlign =
+        "right";
+
+    c.fillText(
+        "Total = " +
+        total.toFixed(2) +
+        " atm",
+        graph.right,
+        totalY - 8
+    );
+
 }
 
 function initializeGasLaws() {
+
     updateAvogadro();
     updateBoyle();
     updateCharles();
     updateDalton();
-}
 
+}
 
 /* =========================================================
    INITIALIZE
 ========================================================= */
- 
+
 createPeriodicTable();
- 
+
 setupDropdowns();
- 
+
 initializeGasLaws();
- 
+
 </script>
- 
+
 </body>
+
 </html>
